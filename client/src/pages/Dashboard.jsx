@@ -1,5 +1,5 @@
 import { Box, Card, CardBody, CardHeader, CardFooter, SimpleGrid, Text, Flex, Heading, HStack, Button, Divider } from "@chakra-ui/react";
-import {ViewIcon, EditIcon} from '@chakra-ui/icons'
+import {AddIcon} from '@chakra-ui/icons'
 // import { useLoaderData } from "react-router-dom";
 
 export default function Dashboard() {
@@ -26,7 +26,7 @@ export default function Dashboard() {
           <Divider borderColor="gray.200"/>
           <CardFooter>
             <HStack>
-              <Button variant="ghost" leftIcon={ <ViewIcon /> }>Add to Cart</Button>
+              <Button variant="ghost" leftIcon={ <AddIcon /> }>Add to Cart</Button>
               {/* <Button variant="ghost" leftIcon={ <EditIcon /> }>Comment</Button> */}
             </HStack>
           </CardFooter>
