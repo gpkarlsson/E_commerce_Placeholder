@@ -14,20 +14,20 @@ export default function Dashboard() {
                   <Text>Image here</Text>
                 </Box>
                 <Box>
-                  <Heading as="h3" size="small">{task.title}</Heading>
+                  <Heading as="h3" size="small">title</Heading>
                   <Text>by </Text>
                 </Box>
               </Flex>
           </CardHeader>
           <CardBody color="gray.500">
-            <Text>{task.description}</Text>
+            <Text>description</Text>
 
           </CardBody>
           <Divider borderColor="gray.200"/>
           <CardFooter>
             <HStack>
-              <Button variant="ghost" leftIcon={ <ViewIcon /> }>Watch</Button>
-              <Button variant="ghost" leftIcon={ <EditIcon /> }>Comment</Button>
+              <Button variant="ghost" leftIcon={ <ViewIcon /> }>Add to Cart</Button>
+              {/* <Button variant="ghost" leftIcon={ <EditIcon /> }>Comment</Button> */}
             </HStack>
           </CardFooter>
         </Card>
@@ -35,8 +35,8 @@ export default function Dashboard() {
   )
 }
 
-export const tasksLoader = async () => {
-  const res = await fetch('http://localhost:3000/tasks')
+// export const tasksLoader = async () => {
+//   const res = await fetch('http://localhost:3000/tasks')
 
-  return res.json()
-}
+//   return res.json()
+// }
