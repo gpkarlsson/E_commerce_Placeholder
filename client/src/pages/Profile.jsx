@@ -1,6 +1,7 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel, List, ListItem, ListIcon } from "@chakra-ui/react";
 
 import { EmailIcon, InfoIcon, InfoOutlineIcon } from "@chakra-ui/icons";
+
 export default function Profile() {
   return (
     <Tabs mt="40px" p="20px" colorScheme="purple" variant="enclosed">
