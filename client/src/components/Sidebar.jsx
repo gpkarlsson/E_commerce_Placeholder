@@ -24,6 +24,12 @@ export default function Sidebar() {
                 Profile        
             </NavLink>
         </ListItem>
+        <ListItem>
+            <NavLink to="/cart">
+            <ListIcon as={AtSignIcon} color="white" />
+                Cart        
+            </NavLink>
+        </ListItem>
     </List>
   )
 }
