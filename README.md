@@ -5,4 +5,9 @@ Our team developed _______ in order to showcase our fullstack repetoire. This ap
 
 ## Description
 
+
 ## Contact
+Ben Ropa 
+Gordon Karlsson 
+Stephen Merki
+Devin Hoffmaster
