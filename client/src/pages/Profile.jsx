@@ -9,7 +9,7 @@ export default function Profile() {
         <Tab _selected={{color: "white", bg: "purple.400", transition: "0.2s"}}>Account Info</Tab>
         <Tab _selected={{color: "white", bg: "purple.400", transition: "0.2s"}}>Task History</Tab>
       </TabList>
-    
+
       <TabPanels>
           <TabPanel>
             <List spacing={4}>
