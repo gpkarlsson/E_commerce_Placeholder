@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
 import Cart from './pages/Cart'
 
+
 // router and routes
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route path="profile" element={<Profile />} />
       <Route path="cart" element={<Cart />} /> 
     </Route>
+
   )
 )
 

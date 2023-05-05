@@ -16,6 +16,8 @@ import {
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 
+import Footer from '../components/Footer'
+
 function Cart() {
   const [cartItems, setCartItems] = useState([
     { id: 1, name: "Product 1", price: 10, quantity: 1 },
@@ -40,22 +42,23 @@ function Cart() {
   );
 
   return (
+    <>
     <Box p={4}>
-      <Heading mb={4}>Shopping Cart</Heading>
+      <Heading mb={4} color="brand.400">Shopping Cart</Heading>
       <Table variant="simple">
         <Thead>
           <Tr>
-            <Th>Product Name</Th>
-            <Th>Price</Th>
-            <Th>Quantity</Th>
-            <Th>Actions</Th>
+            <Th color="brand.400">Product Name</Th>
+            <Th color="brand.400">Price</Th>
+            <Th color="brand.400">Quantity</Th>
+            <Th color="brand.400">Actions</Th>
           </Tr>
         </Thead>
         <Tbody>
           {cartItems.map((item) => (
-            <Tr key={item.id}>
-              <Td>{item.name}</Td>
-              <Td>${item.price}</Td>
+            <Tr color="brand.400" key={item.id}>
+              <Td color="brand.400">{item.name}</Td>
+              <Td color="brand.400">${item.price}</Td>
               <Td>
                 <Input
                   type="number"
@@ -76,13 +79,15 @@ function Cart() {
         </Tbody>
       </Table>
       <Flex justify="space-between" mt={4}>
-        <Text fontWeight="bold">Total Price:</Text>
-        <Text>${totalPrice}</Text>
+        <Text fontWeight="bold" color="brand.400">Total Price:</Text>
+        <Text color="brand.400">${totalPrice}</Text>
       </Flex>
-      <Button mt={4} colorScheme="blue">
+      <Button mt={4} bg="brand.900" color="white">
         Checkout
       </Button>
     </Box>
+  <Footer />
+    </>
   );
 }
 

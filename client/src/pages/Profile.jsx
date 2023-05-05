@@ -24,8 +24,8 @@ export default function Profile() {
   return (
     <Tabs mt="40px" p="20px" colorScheme="purple" variant="enclosed">
       <TabList>
-        <Tab _selected={{color: "white", bg: "purple.400", transition: "0.2s"}}>Account Info</Tab>
-        <Tab _selected={{color: "white", bg: "purple.400", transition: "0.2s"}}>Order History</Tab>
+        <Tab _selected={{color: "white", bg: "brand.900", transition: "0.2s"}}>Account Info</Tab>
+        <Tab _selected={{color: "white", bg: "brand.900", transition: "0.2s"}}>Order History</Tab>
       </TabList>
 
       <TabPanels>
