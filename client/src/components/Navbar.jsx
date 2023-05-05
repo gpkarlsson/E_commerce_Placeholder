@@ -25,8 +25,8 @@ export default function Navbar() {
       <HStack spacing="20px"> 
         <Box bg="gray.200" p="10px 15px" borderRadius="50%">G</Box>
         <Text>gordon@email.dev</Text>
-        <Button colorScheme="purple">Logout</Button>
-        <Button colorScheme="purple" onClick={showToast}>Checkout</Button>
+        <Button colorScheme="purple" onClick={showToast}>Logout</Button>
+        <Button colorScheme="purple">Checkout</Button>
 
       </HStack>
     </Flex>
