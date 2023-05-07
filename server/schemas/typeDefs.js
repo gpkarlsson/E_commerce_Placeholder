@@ -16,6 +16,12 @@ const typeDefs = gql`
         price: Number
         itemDescription: String
     }
+    type History {
+        _id: ID
+        user_id: Number
+        order_date: Date
+        order: [Item]
+    }
     type Auth {
         token: ID!
         user: User
