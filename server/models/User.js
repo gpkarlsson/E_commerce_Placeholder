@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const Schema = require('mongoose');
 const mongoose = require('mongoose');
 const Item = require('./Item');
+const History = require('./History');
 
 const userSchema = new Schema(
     {
@@ -23,13 +24,13 @@ const userSchema = new Schema(
         match: [, "Password does not match!"],
       },
       items: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: Item,
-        },
+        Item
       ],
       cart: [
         Item
+      ],
+      history:[
+        History
       ],
     },
     {
