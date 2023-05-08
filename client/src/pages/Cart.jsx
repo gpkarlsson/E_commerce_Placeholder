@@ -14,6 +14,7 @@ import {
   Th,
   Td,
   Input,
+  Link
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 
@@ -84,9 +85,11 @@ function Cart() {
         <Text fontWeight="bold" color="brand.400">Total Price:</Text>
         <Text color="brand.400">${totalPrice}</Text>
       </Flex>
+      <Link to="/checkout">
       <Button mt={4} bg="brand.900" color="white">
         Checkout
       </Button>
+      </Link>
     </Box>
     <Footer />
     </>

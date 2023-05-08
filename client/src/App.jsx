@@ -14,7 +14,8 @@ import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
 import Cart from './pages/Cart'
 import Login from './pages/Login'
-
+import Checkout from './pages/Checkout'
+import NotFound from './pages/NotFound'
 
 // router and routes
 const router = createBrowserRouter(
@@ -24,8 +25,9 @@ const router = createBrowserRouter(
       {/* <Route index element={<Create />}/> */}
       <Route path="profile" element={<Profile />} />
       <Route path="cart" element={<Cart />} />
-      <Route path="*" element={<h1>404 Not Found</h1>} />
+      <Route path="*" element={<NotFound />} />
       <Route path="login" element={<LoginLayout> <Login /> </LoginLayout>} />
+      <Route path="checkout" element={<Checkout />}></Route>
     </Route>
   ),
 );
