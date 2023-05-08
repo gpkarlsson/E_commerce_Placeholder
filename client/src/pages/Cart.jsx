@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Footer from "../components/Footer";
 import {
   Box,
   Flex,
@@ -15,8 +16,6 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
-
-import Footer from '../components/Footer'
 
 function Cart() {
   const [cartItems, setCartItems] = useState([
@@ -86,7 +85,7 @@ function Cart() {
         Checkout
       </Button>
     </Box>
-  <Footer />
+    <Footer />
     </>
   );
 }

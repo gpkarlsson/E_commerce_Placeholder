@@ -3,10 +3,11 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel, List, ListItem, ListIcon } fro
 import { CalendarIcon, EmailIcon, InfoIcon, InfoOutlineIcon } from "@chakra-ui/icons";
 
 import { faker } from '@faker-js/faker';
-  
+
+import Footer from '../components/Footer'
 
 export default function Profile() {
-  
+
   const randomName = faker.name.fullName();
   const randomEmail = faker.internet.email();
   const randomStreetAddress = faker.address.streetAddress();
@@ -22,22 +23,23 @@ export default function Profile() {
 
 
   return (
-    <Tabs mt="40px" p="20px" colorScheme="purple" variant="enclosed">
-      <TabList>
-        <Tab _selected={{color: "white", bg: "brand.900", transition: "0.2s"}}>Account Info</Tab>
-        <Tab _selected={{color: "white", bg: "brand.900", transition: "0.2s"}}>Order History</Tab>
-      </TabList>
+    <>
+      <Tabs mt="40px" p="20px" colorScheme="purple" variant="enclosed">
+        <TabList>
+          <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>Account Info</Tab>
+          <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>Order History</Tab>
+        </TabList>
 
-      <TabPanels>
+        <TabPanels>
           <TabPanel>
             <List spacing={4}>
-            <ListItem>
+              <ListItem>
                 <ListIcon as={EmailIcon} />
                 Name: {randomName}
               </ListItem>
               <ListItem>
                 <ListIcon as={CalendarIcon} />
-                Birthdate: 
+                Birthdate:
               </ListItem>
               <ListItem>
                 <ListIcon as={EmailIcon} />
@@ -60,7 +62,9 @@ export default function Profile() {
               </ListItem>
             </List>
           </TabPanel>
-      </TabPanels>
-    </Tabs>
+        </TabPanels>
+      </Tabs>
+      <Footer />
+    </>
   )
 }

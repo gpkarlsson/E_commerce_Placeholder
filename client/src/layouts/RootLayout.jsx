@@ -7,6 +7,7 @@ import Sidebar from "../components/Sidebar"
 
 export default function RootLayout() {
   return (
+   
     <Grid templateColumns="repeat(6, 1fr)" bg="#E0DEE1">
       {/* sidebar */}
       <GridItem
@@ -29,5 +30,6 @@ export default function RootLayout() {
         <Outlet />
       </GridItem>
     </Grid>
+    
   )
 }
