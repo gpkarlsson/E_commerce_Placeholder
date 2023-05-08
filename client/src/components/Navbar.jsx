@@ -19,18 +19,38 @@ export default function Navbar() {
     }
 
   return (
-    <Flex as="nav" p="10px" mb="40px" alignItems="center" border="1px solid red" bg="brand.600">
+    // how can i make this responsive? 
+    //I want the navbar hstack components to be in a column on mobile, and in a row on desktop 
+    <Flex 
+    as="nav" 
+    p="10px" 
+    mb="40px" 
+    alignItems="center" 
+    border="1px solid red" 
+    bg="brand.600"
+    flexDirection={{ base: "column", md: "row", lg: "row"}}
+    overflowX={{ base: "auto", md: "visible" }}
+    >
       <Heading as="h1" fontSize="1.5em" color="brand.400">PLATFORM NAME HERE</Heading>
       <Spacer />
 
-      <HStack spacing="20px"> 
+      <HStack 
+        spacing="20px"
+        mt={{ base: "10px", md: "0" }}
+        w={{ base: "100%", md: "auto" }}
+        flexWrap={{ base: "wrap", md: "nowrap" }}
+        justifyContent={{ base: "center", md: "flex-end" }}
+        > 
         <Box bg="gray.200" p="10px 15px" borderRadius="50%">G</Box>
         <Text>gordon@email.dev</Text>
+        <Link to="/login">
         <Button bg="brand.900" color="brand.700" onClick={showToast}>Logout</Button>
+        </Link>
         <Link to="/cart">
         <Button bg="brand.900" color="brand.700">Checkout</Button>
         </Link>
       </HStack>
     </Flex>
+
   )
 }
