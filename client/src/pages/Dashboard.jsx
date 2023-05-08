@@ -1,10 +1,10 @@
 import { Box, Card, CardBody, CardHeader, CardFooter, SimpleGrid, Text, Flex, Heading, HStack, Button, Divider, Avatar, Image} from "@chakra-ui/react";
 import {AddIcon} from '@chakra-ui/icons'
 import Footer from '../components/Footer'
-// import { useLoaderData } from "react-router-dom";
+
 import { faker } from '@faker-js/faker';
 
-import {FiShoppingCart} from 'react-icons/fi'
+import Carousel from "../components/Carousel";
 
 export default function Dashboard() {
   
@@ -13,10 +13,11 @@ const productName = faker.commerce.productName();
 const productDescription = faker.commerce.productDescription();
 const productAdjective = faker.commerce.productAdjective();
 const productPrice = faker.commerce.price(100, 200, 0, '$');
-const productImage = faker.image.image(1234, 2345);
+// const productImage = faker.image.image(1234, 2345);
 
   return (
     <>
+    <Carousel />
     <SimpleGrid p="10px" columns={4} spacing={10} minChildWidth="300px" border="1px solid red">
 
         <Card boxShadow="5px 5px 5px gray" borderTop="8px" borderColor="brand.500" bg="brand.700" >
