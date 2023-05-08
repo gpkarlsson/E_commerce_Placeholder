@@ -50,5 +50,15 @@ module.exports = {
 
     //PUT/DELETE items out of cart
 
+    //POST new items
+
+    //PUT edit items
+
+    //DELETE posted items
+
+    //GET user history
+
+    //DELETE clear history
+
 
 }
