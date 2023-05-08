@@ -17,6 +17,9 @@ import {
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 
+// https://chakra-ui.com/docs/components/stepper - this is a good example of how to use the stepper component
+// stepper could be useful for cart checkout process
+
 function Cart() {
   const [cartItems, setCartItems] = useState([
     { id: 1, name: "Product 1", price: 10, quantity: 1 },

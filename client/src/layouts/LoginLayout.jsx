@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from '@chakra-ui/react'
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 
 export default function LoginLayout({ children }) {
   return (
@@ -9,7 +9,7 @@ export default function LoginLayout({ children }) {
       <Box maxW="md" mx="auto" py={4}>
         {children}
       </Box>
-      <Footer />
+      {/* <Footer /> */}
     </Box>
   )
 } 
