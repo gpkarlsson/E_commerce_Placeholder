@@ -31,7 +31,7 @@ export default function Navbar() {
     flexDirection={{ base: "column", md: "row", lg: "row"}}
     overflowX={{ base: "auto", md: "visible" }}
     >
-      <Heading as="h1" fontSize="1.5em" color="brand.400">PLATFORM NAME HERE</Heading>
+      <Heading as="h1" fontSize="1.5em" color="brand.400">Generic E-Commerce Site #3</Heading>
       <Spacer />
 
       <HStack 

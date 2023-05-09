@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
+import {Link } from "react-router-dom";
+import Checkout from "./Checkout";
 import {
   Box,
   Flex,
@@ -84,9 +86,9 @@ function Cart() {
         <Text fontWeight="bold" color="brand.400">Total Price:</Text>
         <Text color="brand.400">${totalPrice}</Text>
       </Flex>
-      <Button mt={4} bg="brand.900" color="white">
-        Checkout
-      </Button>
+      <Link to="/checkout">
+      <Button mt={4} bg="brand.900" color="white">Checkout</Button>
+      </Link>
     </Box>
     <Footer />
     </>
