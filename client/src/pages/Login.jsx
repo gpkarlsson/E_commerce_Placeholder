@@ -1,9 +1,9 @@
-import React from 'react'
-import { FormControl, Input, FormLabel, Button } from '@chakra-ui/react'
-import LoginLayout from '../layouts/LoginLayout'
-import { Link } from 'react-router-dom'
+// import React from 'react'
+// import { FormControl, Input, FormLabel, Button } from '@chakra-ui/react'
+// import LoginLayout from '../layouts/LoginLayout'
+// import { Link } from 'react-router-dom'
 
-export default function Login() {
+// export default function Login() {
   // const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   // const [validated] = useState(false);
   // const [showAlert, setShowAlert] = useState(false);
@@ -50,23 +50,90 @@ export default function Login() {
   //   });
   // };
 
+//   return (
+//     <LoginLayout>
+//       <FormControl>
+//         <FormLabel>Email</FormLabel>
+//         <Input type="email" placeholder="Enter your email" bg="white" color="brand.400" />
+//         <FormLabel>Password</FormLabel>
+//         <Input type="password" placeholder="Enter your password" bg="white" color="brand.400" />
+//         <Button mt="20px" bg="brand.900" color="white">
+//           Login
+//         </Button>
+//         <Link to="signup">
+//         <Button mt="20px" bg="brand.900" color="white">
+//           Sign-up
+//         </Button>
+//         </Link>
+//         {/* eventually - onClick login logic */}
+//       </FormControl>
+//     </LoginLayout>
+//   )
+// }
+import {
+  Flex,
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+  Checkbox,
+  Stack,
+  Button,
+  Heading,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
+
+import { Link } from 'react-router-dom'
+
+export default function LoginCard() {
   return (
-    <LoginLayout>
-      <FormControl>
-        <FormLabel>Email</FormLabel>
-        <Input type="email" placeholder="Enter your email" bg="white" color="brand.400" />
-        <FormLabel>Password</FormLabel>
-        <Input type="password" placeholder="Enter your password" bg="white" color="brand.400" />
-        <Button mt="20px" bg="brand.900" color="white">
-          Login
-        </Button>
-        <Link to="signup">
-        <Button mt="20px" bg="brand.900" color="white">
-          Sign-up
-        </Button>
-        </Link>
-        {/* eventually - onClick login logic */}
-      </FormControl>
-    </LoginLayout>
-  )
+    <Flex
+      minH={'100vh'}
+      align={'center'}
+      justify={'center'}
+      bg={useColorModeValue('gray.50', 'gray.800')}>
+      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+        <Stack align={'center'}>
+          <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+          <Text fontSize={'lg'} color={'gray.600'}>
+            Don't have an account? Sign up <Text as={Link} to="/signup" color="blue.400" >here!</Text> ✌️
+          </Text>
+        </Stack>
+        <Box
+          rounded={'lg'}
+          bg={useColorModeValue('white', 'gray.700')}
+          boxShadow={'lg'}
+          p={8}>
+          <Stack spacing={4}>
+            <FormControl id="email">
+              <FormLabel>Email address</FormLabel>
+              <Input type="email" />
+            </FormControl>
+            <FormControl id="password">
+              <FormLabel>Password</FormLabel>
+              <Input type="password" />
+            </FormControl>
+            <Stack spacing={10}>
+              <Stack
+                direction={{ base: 'column', sm: 'row' }}
+                align={'start'}
+                justify={'space-between'}>
+                <Checkbox>Remember me</Checkbox>
+                <Link color={'blue.400'} to="/forgot">Forgot password?</Link>
+              </Stack>
+              <Button
+                bg={'blue.400'}
+                color={'white'}
+                _hover={{
+                  bg: 'blue.500',
+                }}>
+                Sign in
+              </Button>
+            </Stack>
+          </Stack>
+        </Box>
+      </Stack>
+    </Flex>
+  );
 }

@@ -39,7 +39,7 @@ export default function CheckoutStepper() {
           <Box>
             <p>Step 1 content</p>
             <Link to='/shipping'>
-            <Button onClick={handleNext}>Next</Button>
+            <Button onClick={handleNext} p="10px">Next</Button>
             </Link>
           </Box>
         );
@@ -48,10 +48,10 @@ export default function CheckoutStepper() {
           <Box>
             <p>Shipping</p>
             <Link to='/checkout'>
-            <Button onClick={handlePrev}>Cart Contents</Button>
+            <Button onClick={handlePrev} p="10px">Cart Contents</Button>
             </Link>
             <Link to='/billing'>
-            <Button onClick={handleNext}>Billing</Button>
+            <Button onClick={handleNext} p="10px">Billing</Button>
             </Link>
           </Box>
         );
@@ -60,10 +60,10 @@ export default function CheckoutStepper() {
           <Box>
             <p>Billing</p>
             <Link to='/shipping'>
-            <Button onClick={handlePrev}>Shipping</Button>
+            <Button onClick={handlePrev} p="10px">Shipping</Button>
             </Link>
             <Link to='/confirmation'>
-            <Button onClick={handleNext}>Confirmation</Button>
+            <Button onClick={handleNext} p="10px">Confirmation</Button>
             </Link>
           </Box>
         );
@@ -71,7 +71,7 @@ export default function CheckoutStepper() {
         return (
           <Box>
             <p>Order Confirmation</p>
-            <Button onClick={handlePrev}>Previous</Button>
+            <Button onClick={handlePrev} p="10px">Previous</Button>
           </Box>
         );
       default:
