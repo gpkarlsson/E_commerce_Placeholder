@@ -20,12 +20,12 @@ Our team developed _______ in order to showcase our fullstack repetoire. This ap
 <img src="https://img.shields.io/badge/Chakra--UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white" />
 
 ## Usage
-https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
-https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-https://img.shields.io/badge/Chakra--UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white
-https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
-https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white
-https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E
+https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E<br /><br />
+https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB<br /><br />
+https://img.shields.io/badge/Chakra--UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white<br /><br />
+https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white<br /><br />
+https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white<br /><br />
+https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E<br /><br />
 
 ## Screenshot
 
