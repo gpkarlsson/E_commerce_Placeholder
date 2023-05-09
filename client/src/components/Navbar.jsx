@@ -43,8 +43,8 @@ export default function Navbar() {
         > 
         <Box bg="gray.200" p="10px 15px" borderRadius="50%">G</Box>
         <Text>gordon@email.dev</Text>
-        <Link to="/login">
-        <Button bg="brand.900" color="brand.700" onClick={showToast}>Logout</Button>
+        <Link to="/">
+        <Button bg="brand.900" color="brand.700" onClick={showToast} >Logout</Button>
         </Link>
         <Link to="/cart">
         <Button bg="brand.900" color="brand.700">Checkout</Button>

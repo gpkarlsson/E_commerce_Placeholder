@@ -20,13 +20,15 @@ import Shipping from './components/Shipping'
 import Billing from './pages/Billing'
 import Confirmation from './pages/Confirmation'
 import Signup from './pages/Signup'
+import ForgotPassword from './pages/ForgotPassword'
 
 // router and routes
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Dashboard />}/>
+      <Route index element={<Login />}/>
       {/* <Route index element={<Create />}/> */}
+      <Route path="home" element={<Dashboard />} />
       <Route path="profile" element={<Profile />} />
       <Route path="cart" element={<Cart />} />
       <Route path="*" element={<NotFound />} />
@@ -35,7 +37,8 @@ const router = createBrowserRouter(
       <Route path="shipping" element={<Shipping />}></Route>
       <Route path="billing" element={<Billing />}></Route>
       <Route path="confirmation" element={<Confirmation />}></Route>
-      <Route path="login/signup" element={<Signup />}></Route>
+      <Route path="signup" element={<Signup />}></Route>
+      <Route path="forgot" element={<ForgotPassword />}></Route>
     </Route>
   ),
 );
