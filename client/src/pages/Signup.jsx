@@ -203,7 +203,7 @@ export default function SignupCard() {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Text as={Link} to="/" color={'blue.400'}>Login</Text>
+                Already a user? <Text as={Link} to="/api/users/login" color={'blue.400'}>Login</Text>
               </Text>
             </Stack>
           </Stack>

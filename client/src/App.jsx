@@ -26,18 +26,18 @@ import ForgotPassword from './pages/ForgotPassword'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Login />}/>
+      <Route index element={<Dashboard />}/>
       {/* <Route index element={<Create />}/> */}
-      <Route path="home" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
       <Route path="profile" element={<Profile />} />
       <Route path="cart" element={<Cart />} />
       <Route path="*" element={<NotFound />} />
-      <Route path="login" element={<LoginLayout> <Login /> </LoginLayout>} />
+      <Route path="/api/users/login" element={<LoginLayout> <Login /> </LoginLayout>} />
       <Route path="checkout" element={<Checkout />}></Route>
       <Route path="shipping" element={<Shipping />}></Route>
       <Route path="billing" element={<Billing />}></Route>
       <Route path="confirmation" element={<Confirmation />}></Route>
-      <Route path="signup" element={<Signup />}></Route>
+      <Route path="/api/users/" element={<Signup />}></Route>
       <Route path="forgot" element={<ForgotPassword />}></Route>
     </Route>
   ),

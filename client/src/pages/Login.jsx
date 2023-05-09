@@ -97,7 +97,7 @@ export default function LoginCard() {
         <Stack align={'center'}>
           <Heading fontSize={'4xl'}>Sign in to your account</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-            Don't have an account? Sign up <Text as={Link} to="/signup" color="blue.400" >here!</Text> ✌️
+            Don't have an account? Sign up <Text as={Link} to="/api/users" color="blue.400" >here!</Text> ✌️
           </Text>
         </Stack>
         <Box

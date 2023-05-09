@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
 import {Link } from "react-router-dom";
-import Checkout from "./Checkout";
+// import Checkout from "./Checkout";
 import {
   Box,
   Flex,
