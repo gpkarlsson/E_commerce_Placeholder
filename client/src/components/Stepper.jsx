@@ -46,19 +46,19 @@ export default function CheckoutStepper() {
       case 2:
         return (
           <Box>
-            <p>Step 2 content</p>
+            <p>Shipping</p>
             <Link to='/checkout'>
             <Button onClick={handlePrev}>Cart Contents</Button>
             </Link>
             <Link to='/billing'>
-            <Button onClick={handleNext}>Shipping</Button>
+            <Button onClick={handleNext}>Billing</Button>
             </Link>
           </Box>
         );
       case 3:
         return (
           <Box>
-            <p>Step 3 content</p>
+            <p>Billing</p>
             <Link to='/shipping'>
             <Button onClick={handlePrev}>Shipping</Button>
             </Link>
