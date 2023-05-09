@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { v4  as uuidv4 } from 'uuid';
+// import { v4  as uuidv4 } from 'uuid';
 // import faker from '@faker-js/faker';
 
-import { Box, Button, Divider, Heading, Text, VStack } from '@chakra-ui/react';
+// import { Box, Button, Divider, Heading, Text, VStack } from '@chakra-ui/react';
 
 const OrderConfirmation = () => {
   // const randomName = faker.name.fullName();
