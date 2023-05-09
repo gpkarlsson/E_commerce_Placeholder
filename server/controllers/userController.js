@@ -1,12 +1,11 @@
-const Item = require("../models/Item");
-const User = require("../models/User");
+const { User } = require("../models");
 
 module.exports = {
     //add user controller logic
 
   // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
-  async createUser({ body }, res) {
-    const user = await User.create(body);
+  async createUser(req, res) {
+    const user = await User.create(req.body);
 
     if (!user) {
       return res.status(400).json({ message: 'Something is wrong!' });
@@ -15,19 +14,19 @@ module.exports = {
     res.json({ token, user });
   },
 
-  async login({ body }, res) {
-    const user = await User.findOne([{ password: body.password }, { email: body.email }] );
+  async login(req, res) {
+    const user = await User.findOne([{ password: req.body.password }, { email: req.body.email }] );
     if (!user) {
       return res.status(400).json({ message: "Can't find this user" });
     }
 
-    const correctEmail = await user.isCorrectEmail(body.password);
+    const correctEmail = await user.isCorrectEmail(req.body.password);
 
     if (!correctEmail) {
       return res.status(400).json({ message: 'Wrong password!' });
     }
 
-    const correctPw = await user.isCorrectPassword(body.password);
+    const correctPw = await user.isCorrectPassword(req.body.password);
 
     if (!correctPw) {
       return res.status(400).json({ message: 'Wrong password!' });
@@ -36,29 +35,140 @@ module.exports = {
     res.json({ token, user });
   },
 
-    //GET all items in cart
+  async getSingleUser(req, res) { // I think we can grab carts and history from a returned user based on schema, meaning this should work for all 3.
+    const foundUser = await User.findOne({ username: req.body.username });
+
+    if (!foundUser) {
+      return res.status(400).json({ message: 'Cannot find a user with this id!' });
+    }
+    res.json({ foundUser });
+  },
+
 
     //PUT items into carts
+  async putItemInCart({ user, params, body}, res) {
+    try {
+      const updatedUser = await User.findOneAndUpdate(
+      { _id: user._id},
+      { $addToSet: { cart: { itemId: body._id}}},
+      { new: true, runValidators: true }
+      );
+      return res.json(updatedUser);
+    } catch (err) {
+      console.log(err);
+      return res.status(400).json(err);
+    }
+  },
 
-    //DELETE items from carts
+    //PUT items from carts
+    async removeItemInCart({ user, params, body}, res) {
+      try {
+        const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id},
+        { $pull: { cart: { body }}},
+        { new: true, runValidators: true }
+        );
+        return res.json(updatedUser);
+      } catch (err) {
+        console.log(err);
+        return res.status(400).json(err);
+      }
+    },
 
-    //DELETE user by email/pass
+    async putItemInCart({ user, params, body}, res) {
+      try {
+        const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id},
+        { $set: { cart: []}},
+        { new: true, runValidators: true }
+        );
+        return res.json(updatedUser);
+      } catch (err) {
+        console.log(err);
+        return res.status(400).json(err);
+      }
+    },
 
-    //DELETE Empty whole cart(Checkout) 2x
+    //PUT new history for user
+    async addUserHistory({ user, body }, res) {
+      try {
+        const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id},
+        { $addToSet: { history: { _id: body._id}}},
+        { new: true, runValidators: true }
+        );
+        return res.json(updatedUser);
+        } catch (err) {
+        console.log(err);
+        return res.status(400).json(err);
+        }
+    },
 
-    //PUT Edit user info
+    //PUT new items
+    async addUserItem({ user, body }, res) {
+      try {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: user._id},
+          { $addToSet: { items: { itemId: body.itemId}}},
+          { new: true, runValidators: true }
+        );
+        return res.json(updatedUser);
+      } catch (err) {
+        console.log(err);
+        return res.status(400).json(err);
+      }
+    },
 
-    //PUT/DELETE items out of cart
-
-    //POST new items
-
-    //PUT edit items
-
-    //DELETE posted items
+    //PUT remove posted items
+    async removeUserHistory({ user, params, body}, res) {
+      try {
+        const updatedUser = await User.findOneAndUpdate(
+        { id: user._id},
+        { $pull: { items: { itemId: body.itemId}}},
+        { new: true, runValidators: true }
+        );
+        return res.json(updatedUser);
+      } catch (err) {
+        console.log(err);
+        return res.status(400).json(err);
+      }
+    },
 
     //GET user history
+    async getUserHistory({ user }, res) {
+      try {
+        const user = await user.findOne([{ _id: user._id }]);
+      return res.json(user.history);
+      } catch (err) {
+      console.log(err);
+      return res.status(400).json(err);
+      }
+    },
 
-    //DELETE clear history
+      //GET user items
+    async getUserHistory({ user }, res) {
+      try {
+        const user = await user.findOne([{ _id: user._id }]);
+      return res.json(user.items);
+      } catch (err) {
+      console.log(err);
+      return res.status(400).json(err);
+      }
+    },
 
+    //PUT clear history
+    async removeUserHistory({ user, params, body}, res) {
+      try {
+        const updatedUser = await User.findOneAndUpdate(
+        { id: user._id},
+        { $set: { history: []}},
+        { new: true, runValidators: true }
+        );
+        return res.json(updatedUser);
+      } catch (err) {
+        console.log(err);
+        return res.status(400).json(err);
+      }
+    },
 
 }

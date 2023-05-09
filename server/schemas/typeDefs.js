@@ -6,12 +6,13 @@ const typeDefs = gql`
         username: String
         email: String
         password: String
-        items: [Item]
+        items: [ID]
         cart: [Item]
-        history: [History]
+        history: [ID]
     }
     type Item {
         itemId: ID
+        user_id: Number
         itemName: String
         imageLink: String
         price: Number
@@ -19,6 +20,7 @@ const typeDefs = gql`
     }
     type History {
         _id: ID
+        user_id: Number
         order_date: Date
         order: [Item]
     }

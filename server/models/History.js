@@ -4,6 +4,10 @@ const Item = require('./Item');
 
 const userSchema = new Schema(
     {
+      user_id: {
+        type: Number,
+        required: true,
+      },
       order_date: {
         type: Date,
         required: true,

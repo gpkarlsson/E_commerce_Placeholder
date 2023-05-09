@@ -24,13 +24,19 @@ const userSchema = new Schema(
         match: [, "Password does not match!"],
       },
       items: [
-        Item
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Item',
+        },
       ],
       cart: [
         Item
       ],
       history:[
-        History
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'History',
+        },
       ],
     },
     {
