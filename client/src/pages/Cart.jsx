@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
+import {Link } from "react-router-dom";
+import Checkout from "./Checkout";
 import {
   Box,
   Flex,
@@ -14,7 +16,6 @@ import {
   Th,
   Td,
   Input,
-  Link
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 
@@ -86,9 +87,7 @@ function Cart() {
         <Text color="brand.400">${totalPrice}</Text>
       </Flex>
       <Link to="/checkout">
-      <Button mt={4} bg="brand.900" color="white">
-        Checkout
-      </Button>
+      <Button mt={4} bg="brand.900" color="white">Checkout</Button>
       </Link>
     </Box>
     <Footer />

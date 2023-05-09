@@ -16,6 +16,7 @@ import Cart from './pages/Cart'
 import Login from './pages/Login'
 import Checkout from './pages/Checkout'
 import NotFound from './pages/NotFound'
+import Shipping from './components/Shipping'
 
 // router and routes
 const router = createBrowserRouter(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="*" element={<NotFound />} />
       <Route path="login" element={<LoginLayout> <Login /> </LoginLayout>} />
       <Route path="checkout" element={<Checkout />}></Route>
+      <Route path="shipping" element={<Shipping />}></Route>
     </Route>
   ),
 );
