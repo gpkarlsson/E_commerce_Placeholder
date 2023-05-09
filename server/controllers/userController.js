@@ -75,7 +75,7 @@ module.exports = {
       }
     },
 
-    async putItemInCart({ user, params, body}, res) {
+    async emptyCart({ user, params, body}, res) {
       try {
         const updatedUser = await User.findOneAndUpdate(
         { _id: user._id},
@@ -137,8 +137,8 @@ module.exports = {
     //GET user history
     async getUserHistory({ user }, res) {
       try {
-        const user = await user.findOne([{ _id: user._id }]);
-      return res.json(user.history);
+        const currentUser = await User.findOne([{ _id: user._id }]);
+      return res.json(currentUser.history);
       } catch (err) {
       console.log(err);
       return res.status(400).json(err);
@@ -146,10 +146,10 @@ module.exports = {
     },
 
       //GET user items
-    async getUserHistory({ user }, res) {
+    async getUserItems({ user }, res) {
       try {
-        const user = await user.findOne([{ _id: user._id }]);
-      return res.json(user.items);
+        const currentUser = await User.findOne([{ _id: user._id }]);
+      return res.json(currentUser.items);
       } catch (err) {
       console.log(err);
       return res.status(400).json(err);
