@@ -1,6 +1,7 @@
 import React from 'react'
 import { FormControl, Input, FormLabel, Button } from '@chakra-ui/react'
 import LoginLayout from '../layouts/LoginLayout'
+import { Link } from 'react-router-dom'
 
 export default function Login() {
   // const [userFormData, setUserFormData] = useState({ email: "", password: "" });
@@ -59,6 +60,11 @@ export default function Login() {
         <Button mt="20px" bg="brand.900" color="white">
           Login
         </Button>
+        <Link to="signup">
+        <Button mt="20px" bg="brand.900" color="white">
+          Sign-up
+        </Button>
+        </Link>
         {/* eventually - onClick login logic */}
       </FormControl>
     </LoginLayout>

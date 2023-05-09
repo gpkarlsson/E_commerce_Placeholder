@@ -19,6 +19,7 @@ import NotFound from './pages/NotFound'
 import Shipping from './components/Shipping'
 import Billing from './pages/Billing'
 import Confirmation from './pages/Confirmation'
+import Signup from './pages/Signup'
 
 // router and routes
 const router = createBrowserRouter(
@@ -34,6 +35,7 @@ const router = createBrowserRouter(
       <Route path="shipping" element={<Shipping />}></Route>
       <Route path="billing" element={<Billing />}></Route>
       <Route path="confirmation" element={<Confirmation />}></Route>
+      <Route path="login/signup" element={<Signup />}></Route>
     </Route>
   ),
 );
