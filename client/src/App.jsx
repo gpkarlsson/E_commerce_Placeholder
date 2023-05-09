@@ -21,7 +21,7 @@ import Billing from './pages/Billing'
 import Confirmation from './pages/Confirmation'
 import Signup from './pages/Signup'
 import ForgotPassword from './pages/ForgotPassword'
-
+import Contact from './pages/Contact'
 // router and routes
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +39,8 @@ const router = createBrowserRouter(
       <Route path="confirmation" element={<Confirmation />}></Route>
       <Route path="/api/users/" element={<Signup />}></Route>
       <Route path="forgot" element={<ForgotPassword />}></Route>
+      <Route path="contact" element={<Contact />}></Route>
+
     </Route>
   ),
 );

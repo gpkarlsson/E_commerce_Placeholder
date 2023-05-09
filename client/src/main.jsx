@@ -14,6 +14,16 @@ const colors = {
   }
 }
 
+// const colors = {
+//   brand: {
+//     900: "#2D3748",
+//     800: "#4A5568",
+//     700: "#1A202C",
+//     600: "#63B3ED",
+//     500: "#E0E0E0",
+//     400: "#EDF2F7"
+//   }
+// }
 const theme = extendTheme({ colors })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
