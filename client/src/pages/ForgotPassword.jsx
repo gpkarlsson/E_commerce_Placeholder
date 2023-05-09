@@ -64,7 +64,7 @@ export default function ForgotPassword() {
                         </Stack>
                         <Stack pt={6}>
                             <Text align={'center'}>
-                                Remembered your password? <Text as={Link} to="/" color={'blue.400'}>Log in</Text>
+                                Remembered your password? <Text as={Link} to="/api/users/login" color={'blue.400'}>Log in</Text>
                             </Text>
                         </Stack>
                     </Stack>

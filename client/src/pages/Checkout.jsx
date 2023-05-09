@@ -1,7 +1,7 @@
 import React from 'react'
 import Stepper from '../components/Stepper'
-import { Button, Checkbox, FormControl, FormLabel, Input } from '@chakra-ui/react'
-import { Form } from 'react-router-dom'
+import { Button } from '@chakra-ui/react'
+// import { Form } from 'react-router-dom'
 // import {activeStep} from '../components/Stepper.jsx'
 
 export default function Checkout() {
