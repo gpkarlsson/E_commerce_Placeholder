@@ -35,5 +35,5 @@ Our team developed _______ in order to showcase our fullstack repetoire. This ap
 ## Contact
 * Ben Ropa | benropa@outlook.com | [GitHub](https://github.com/BenRopa)
 * Devin Hoffmaster | hlaf83@ymail.com | [GitHub](https://github.com/HoffmasterDevin)
-* Gordon Karlsson | gpkarlsson72@gmail.com | [GitHub](https://github.com/gpkarlsson)
+* Gordon Karlsson | gpkarlsson72@gmail.com | [GitHub](https://github.com/gpkarlsson) | [LinkedIn](https://www.linkedin.com/in/gordon-karlsson)
 * Stephen Merki | stephen.merki232@gmail.com | [GitHub](https://github.com/stev232)
