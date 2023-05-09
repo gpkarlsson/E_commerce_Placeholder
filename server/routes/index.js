@@ -4,6 +4,8 @@ const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
 
-//add front-end routes
+router.use((req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/src/main.jsx.html'));
+  });
 
 module.exports = router;
