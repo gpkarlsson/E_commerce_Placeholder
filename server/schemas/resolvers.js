@@ -105,7 +105,7 @@ const resolvers = {
             { $set: { cart: [] }},
             { new: true },
           );
-          const removedItems = await Item.DeleteMany({ itemId: { $in: [args.item.itemId] } });
+          const removedItems = await Item.deleteMany({ itemId: { $in: [args.item.itemId] } });
           return { newHistory, updatedUser, removedItems };
         }
         throw new AuthenticationError('You need to be logged in!');
