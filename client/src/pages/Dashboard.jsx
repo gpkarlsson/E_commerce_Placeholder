@@ -1,3 +1,5 @@
+// @ts-check
+
 import { Box, Card, CardBody, CardHeader, CardFooter, SimpleGrid, Text, Flex, Heading, HStack, Button, Divider, Image } from "@chakra-ui/react";
 import { AddIcon } from '@chakra-ui/icons'
 import Footer from '../components/Footer'

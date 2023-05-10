@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
@@ -27,6 +29,7 @@ const colors = {
 const theme = extendTheme({ colors })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  //type null not assignable to type element | documentfragment
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <App />

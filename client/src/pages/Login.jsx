@@ -1,4 +1,6 @@
-// import React from 'react'
+// @ts-check
+
+import React from 'react'
 // import { FormControl, Input, FormLabel, Button } from '@chakra-ui/react'
 // import LoginLayout from '../layouts/LoginLayout'
 // import { Link } from 'react-router-dom'

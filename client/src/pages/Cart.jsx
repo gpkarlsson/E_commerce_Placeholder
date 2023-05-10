@@ -1,3 +1,5 @@
+// @ts-check
+import React from "react";
 import { useState } from "react";
 import Footer from "../components/Footer";
 import {Link } from "react-router-dom";

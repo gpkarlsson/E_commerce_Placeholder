@@ -1,3 +1,5 @@
+// @ts-check
+
 const bcrypt = require('bcrypt');
 const { Schema } = require('mongoose');
 const mongoose = require('mongoose');

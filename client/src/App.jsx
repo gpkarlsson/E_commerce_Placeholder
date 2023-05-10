@@ -1,3 +1,5 @@
+// @ts-check
+import React from 'react'
 // import Main from './src/main.jsx'
 import { 
   createBrowserRouter, 

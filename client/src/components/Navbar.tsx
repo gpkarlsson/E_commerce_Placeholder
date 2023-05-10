@@ -1,3 +1,5 @@
+// @ts-check
+
 // import { Flex, Heading, Box, Text, Button, Spacer, HStack, useToast } from "@chakra-ui/react"
 // import { UnlockIcon } from "@chakra-ui/icons"
 // import { Link } from 'react-router-dom' 
@@ -54,6 +56,7 @@
 
 //   )
 // }
+import React from 'react';
 import {
   Box,
   Flex,

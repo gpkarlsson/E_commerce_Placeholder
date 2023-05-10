@@ -1,3 +1,4 @@
+// @ts-check
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
@@ -17,9 +18,10 @@ const typeDefs = gql`
         itemDescription: String
     }
     type History {
+    
         _id: ID!
-        user_id: Number!
-        order_date: Date!
+        user_id: Int!
+        order_date: Int!
         order: [Item]
     }
     type CartInput {
@@ -44,6 +46,7 @@ const typeDefs = gql`
         currentUser: User
         currentUserItems: UserItems
         currentUserHistory: UserHistory
+        currentUserCart: [Item]
     }
     type Mutation {
         login(email: String!, password: String!): Auth
@@ -51,8 +54,11 @@ const typeDefs = gql`
         putItemInCart(Item: CartInput!): User
         removeItemInCart(Item: CartInput!): User
         emptyCart(User: ID): User
-        addItem(user_id: String!, itemName: String!, imageLink: String!, price: String!, itemDescription: String!): Item 
+        addItem(user_id: String!, itemName: String!, imageLink: String!, price: String!, itemDescription: String!): Item
+        #removeItem(itemId: ID!): Item
+        #checkout(user_id: String!, order_date: String!, order: [Item]): History 
     }
+    
 `;
 
 module.exports = typeDefs;

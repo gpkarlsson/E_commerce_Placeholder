@@ -1,3 +1,4 @@
+// @ts-check
 const { AuthenticationError } = require('apollo-server-errors');
 const { User, Item, History } = require('../models');
 const { signToken } = require('../utils/auth');
@@ -29,6 +30,7 @@ const resolvers = {
         if (context.user) {
           const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
           return userData.cart;
+          // "userData is possibly null"
         }
         throw new AuthenticationError('You need to be logged in!');
       },
@@ -37,6 +39,7 @@ const resolvers = {
       addUser: async (parent, args) => {
         const user = await User.create(args);
         return { token, user };
+        //No value exists in scope for the shorthand property 'token'. Either declare one or provide an initializer.
       },
       login: async (parent, { email, password }) => {
         const user = await User.findOne({ email });
@@ -46,6 +49,7 @@ const resolvers = {
         }
   
         const correctPw = await user.isCorrectPassword(password);
+        //Property 'isCorrectPassword' does not exist on type 'Document<unknown, {}, { username: string; email: string; password: string; cart: ObjectId[]; }> & Omit<{ username: string; email: string; password: string; cart: ObjectId[]; } & { ...; }, never>'
   
         if (!correctPw) {
           throw new AuthenticationError('Incorrect credentials!');
@@ -98,6 +102,7 @@ const resolvers = {
           const newHistory = await History.create(args);
           if (!newHistory) {
             throw new GraphQLError('')
+            //Cannot find name "GraphQLError"
             //return;
           }
           const updatedUser = await User.findByIdAndUpdate(
@@ -105,7 +110,7 @@ const resolvers = {
             { $set: { cart: [] }},
             { new: true },
           );
-          const removedItems = await Item.DeleteMany({ itemId: { $in: [args.item.itemId] } });
+          const removedItems = await Item.deleteMany({ itemId: { $in: [args.item.itemId] } });
           return { newHistory, updatedUser, removedItems };
         }
         throw new AuthenticationError('You need to be logged in!');

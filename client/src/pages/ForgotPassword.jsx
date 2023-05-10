@@ -1,3 +1,5 @@
+// @ts-check
+import React from 'react'
 import { Flex, Stack, Heading, Box, FormLabel, Input, Button, FormControl, Text, useToast, useColorModeValue } from '@chakra-ui/react'
 import { EmailIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom'
@@ -20,6 +22,7 @@ export default function ForgotPassword() {
 
     function handleFormSubmit() {
         document.getElementById("email").value = "";
+        //object is possibly null
         showForgotToast();
     }
 

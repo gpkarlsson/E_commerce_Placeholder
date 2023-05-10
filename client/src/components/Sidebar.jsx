@@ -1,3 +1,4 @@
+// @ts-check
 import { List, ListIcon, ListItem } from '@chakra-ui/react'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
