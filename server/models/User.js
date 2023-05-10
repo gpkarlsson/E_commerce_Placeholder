@@ -23,20 +23,8 @@ const userSchema = new Schema(
         required: true,
         match: [, "Password does not match!"],
       },
-      items: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'Item',
-        },
-      ],
       cart: [
         Item
-      ],
-      history:[
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'History',
-        },
       ],
     },
     {

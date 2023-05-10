@@ -35,8 +35,8 @@ module.exports = {
     res.json({ token, user });
   },
 
-  async getSingleUser(req, res) { // I think we can grab carts and history from a returned user based on schema, meaning this should work for all 3.
-    const foundUser = await User.findOne({ username: req.body.username });
+  async getSingleUser({ user, body }, res) { // I think we can grab carts and history from a returned user based on schema, meaning this should work for all 3.
+    const foundUser = await User.findOne({ username: user.username });
 
     if (!foundUser) {
       return res.status(400).json({ message: 'Cannot find a user with this id!' });
@@ -89,19 +89,15 @@ module.exports = {
       }
     },
 
-    //PUT new history for user
-    async addUserHistory({ user, body }, res) {
+    //GET user cart
+    async getUserCart({ user }, res) {
       try {
-        const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id},
-        { $addToSet: { history: { _id: body._id}}},
-        { new: true, runValidators: true }
-        );
-        return res.json(updatedUser);
-        } catch (err) {
-        console.log(err);
-        return res.status(400).json(err);
-        }
+        const currentUser = await User.findOne([{ _id: user._id }]);
+      return res.json(currentUser.cart);
+      } catch (err) {
+      console.log(err);
+      return res.status(400).json(err);
+      }
     },
 
     //PUT new items

@@ -1,13 +1,9 @@
 const router = require('express').Router();
 const {
-    createUser,
-    login,
-    getSingleUser,
-    putItemInCart,
-    removeItemInCart,
-    emptyCart,
+
     getUserHistory,
     getUserItems,
+    getUserCart,
   
 } = require('../../controllers/userController.js');
 
@@ -18,6 +14,16 @@ router.route('/').post(createUser);
 
 router.route('/login').post(login);
 
-router.route()
+router.route('/mypage').get(authMiddleware, getSingleUser);
+
+router.route('/mypage/items').get(authMiddleware, getUserItems);
+
+router.route('/mypage/history').get(authMiddleware, getUserHistory);
+
+router.route('/mypage/cart').get(authMiddleware, getUserCart).delete(authMiddleware, emptyCart);
+
+router.route('/mypage/cart/:itemId').delete(authMiddleware, removeItemInCart);
+
+router.route('/:userId/:itemId').post(authMiddleware, putItemInCart);
 
 module.exports = router;
