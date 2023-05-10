@@ -1,45 +1,19 @@
 {
   "name": "e-commerce-placeholder",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "main": "server.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "build": "cd client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "start": "npm run build && cd server && node server.js"
   },
-  "dependencies": {
-    "@chakra-ui/icon": "^3.0.16",
-    "@chakra-ui/icons": "^2.0.19",
-    "@chakra-ui/react": "^2.6.1",
-    "@emotion/react": "^11.10.8",
-    "@emotion/styled": "^11.10.8",
-    "apollo-server-express": "^3.12.0",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "framer-motion": "^10.12.7",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.1.0",
-    "path": "^0.12.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0",
-    "react-router": "^6.11.1",
-    "react-router-dom": "^6.11.1",
-    "react-slick": "^0.29.0",
-    "uuid": "^9.0.0",
-    "uuidv4": "^6.2.13"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@faker-js/faker": "^7.6.0",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^4.0.0",
-    "eslint": "^8.38.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.3.4",
-    "vite": "^4.3.4"
+    "concurrently": "^5.2.0",
+    "@faker-js/faker": "^7.6.0"
   }
 }

@@ -20,25 +20,25 @@ const typeDefs = gql`
         _id: ID!
         user_id: Number!
         order_date: Date!
-        order: [Item]!
+        order: [Item]
     }
-    input CartInput {
+    type CartInput {
         itemId: String
         user_id: String
         itemName: String
         imageLink: String
         price: String
         itemDescription: String
-      }
+    }
     type Auth {
         token: ID!
         user: User
     }
     type UserHistory {
-        [Item]
+        items: [Item]
     }
     type UserItems {
-        [Item]
+        items: [Item]
     }
     type Query {
         currentUser: User
@@ -50,9 +50,8 @@ const typeDefs = gql`
         addUser(email: String!, password: String!, username: String!): Auth
         putItemInCart(Item: CartInput!): User
         removeItemInCart(Item: CartInput!): User
-        emptyCart: User
-        addItem:(user_id: String!, itemName: String!, imageLink: String!, price: String!, itemDescription: String!): Item
-        removeItem: 
+        emptyCart(User: ID): User
+        addItem(user_id: String!, itemName: String!, imageLink: String!, price: String!, itemDescription: String!): Item 
     }
 `;
 
