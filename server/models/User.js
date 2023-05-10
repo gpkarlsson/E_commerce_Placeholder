@@ -1,8 +1,6 @@
 const bcrypt = require('bcrypt');
-const Schema = require('mongoose');
+const { Schema } = require('mongoose');
 const mongoose = require('mongoose');
-const Item = require('./Item');
-const History = require('./History');
 
 const userSchema = new Schema(
     {
@@ -16,15 +14,18 @@ const userSchema = new Schema(
         type: String,
         required: true,
         unique: true,
-        match: [, "Must match an email address!"],
+        //match: [, "Must match an email address!"],
       },
       password: {
         type: String,
         required: true,
-        match: [, "Password does not match!"],
+        //match: [, "Password does not match!"],
       },
       cart: [
-        Item
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Item'
+        }
       ],
     },
     {

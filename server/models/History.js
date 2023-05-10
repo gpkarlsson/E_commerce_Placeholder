@@ -1,24 +1,25 @@
-const Schema = require('mongoose');
-const mongoose = require('mongoose');
-const Item = require('./Item');
+const { Schema, model } = require('mongoose');
 
-const userSchema = new Schema(
+const historySchema = new Schema(
     {
       user_id: {
-        type: Number,
-        required: true,
+        type: Schema.Types.ObjectId,
+        ref: 'User',
       },
       order_date: {
-        type: Date,
+        type: Schema.Types.Date,
         required: true,
-        match: [, "Password does not match!"],
+        default: Date.now,
       },
       order: [
-        Item
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Item'
+        }
       ],
     },
 );
 
-const History = mongoose.model("History", historySchema);
+const History = model("History", historySchema);
 
 module.exports = History;
