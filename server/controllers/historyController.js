@@ -7,8 +7,7 @@ module.exports = {
           .create(req.body)
           .then((history) => {
             if (!history) {
-              res.status(404).json({ message: '' })
-            } else {
+              res.status(404).json({ message: '' })}
               User
                 .findOneAndUpdate(
                   { history: { $elemMatch: { $eq: req.body._id } } },
@@ -23,7 +22,7 @@ module.exports = {
                   }
                 })
     
-            }
+            
           })
           .catch((err) => res.status(500).json(err))
       },
