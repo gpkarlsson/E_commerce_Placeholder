@@ -27,6 +27,7 @@
     "react-icons": "^4.8.0",
     "react-router": "^6.11.1",
     "react-router-dom": "^6.11.1",
+    "react-slick": "^0.29.0",
     "uuid": "^9.0.0",
     "uuidv4": "^6.2.13"
   },
