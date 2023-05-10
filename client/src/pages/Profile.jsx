@@ -28,6 +28,8 @@ export default function Profile() {
         <TabList>
           <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>Account Info</Tab>
           <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>Order History</Tab>
+          <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>My Items</Tab>
+
         </TabList>
 
         <TabPanels>
@@ -59,6 +61,13 @@ export default function Profile() {
             <List spacing={4}>
               <ListItem>
                 Last Order: {productAdjective} {productName} {productPrice}
+              </ListItem>
+            </List>
+          </TabPanel>
+          <TabPanel>
+            <List spacing={4}>
+              <ListItem>
+               ITEMS GET DISPLAYED HERE
               </ListItem>
             </List>
           </TabPanel>

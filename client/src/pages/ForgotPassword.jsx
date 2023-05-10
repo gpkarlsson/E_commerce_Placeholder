@@ -58,7 +58,7 @@ export default function ForgotPassword() {
                                 _hover={{
                                     bg: 'blue.500',
                                 }}
-                                >
+                            >
                                 Send reset link
                             </Button>
                         </Stack>
