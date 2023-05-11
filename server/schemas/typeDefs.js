@@ -24,6 +24,7 @@ const typeDefs = gql`
     }
     #History - user_id: Number! -> user_id: Int!
     #History - order_date: Date! may be causing errors as well?
+
     input CartInput {
         itemId: String
         user_id: String
@@ -69,7 +70,6 @@ const typeDefs = gql`
         price: String
         itemDescription: String 
     }
-
     #Mutation - checkout not defined in schema
     #Mutation - removeItem not defined in schema
 `;
