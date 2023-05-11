@@ -5,10 +5,6 @@ const mongoose = require('mongoose');
 
 const itemSchema = new Schema(
     {
-      itemId: {
-        type: Schema.Types.ObjectId,
-        default: () => new Schema.Types.ObjectId(),
-      },
       user_id: {
         type: Schema.Types.ObjectId,
         ref: 'User',

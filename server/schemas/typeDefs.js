@@ -9,7 +9,7 @@ const typeDefs = gql`
         cart: [Item]
     }
     type Item {
-        itemId: ID!
+        _id: ID!
         user_id: String!
         itemName: String!
         imageLink: String!
@@ -26,7 +26,7 @@ const typeDefs = gql`
     #History - order_date: Date! may be causing errors as well?
 
     input CartInput {
-        itemId: String
+        _id: String
         user_id: String
         itemName: String
         imageLink: String
@@ -48,7 +48,6 @@ const typeDefs = gql`
         currentUser: User
         currentUserItems: UserItems
         currentUserHistory: UserHistory
-        currentUserCart: User
     }
     #Query - currentUserCart not defined in schema
     type Mutation {
@@ -58,12 +57,11 @@ const typeDefs = gql`
         removeItemInCart(Item: CartInput!): User
         emptyCart(User: ID): User
         addItem(user_id: String!, itemName: String!, imageLink: String!, price: String!, itemDescription: String!): Item 
-        removeItem(itemId: ID!): Item
-        checkout(order: [ItemInput]!): History
+        removeItem(_id: ID!): String
     }
     #The type of Mutation.checkout(order:) must be Input Type but got: [Item]!.
     input ItemInput {
-        itemId: String
+        _id: String
         user_id: String
         itemName: String
         imageLink: String
