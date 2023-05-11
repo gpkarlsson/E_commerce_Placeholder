@@ -87,35 +87,55 @@ import {
 } from '@chakra-ui/react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import Auth from '../utils/auth';
 
 export default function LoginCard() {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const [login, { error }] = useMutation(LOGIN_USER);
+
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
+    }
+  }, [error]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
-      });
-      const token = mutationResponse.data.login.token;
-      Auth.login(token);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await login({
+        variables: { ...userFormData }
+      });
+
+      Auth.login(data.login.token);
+
+    } catch (err) {
+      console.error(err);
+    }
+
+    setUserFormData({
+      email: '',
+      password: '',
     });
   };
-
   return (
     <Flex
       minH={'100vh'}
@@ -135,13 +155,14 @@ export default function LoginCard() {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            <FormControl id="email" onSubmit={handleFormSubmit} >
+            <FormControl id="email" onSubmit={handleFormSubmit} onChange={handleInputChange} value={userFormData.email} required>
+              
               <FormLabel>Email address</FormLabel>
               <Input name="email" type="email" />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input name="password" type="password" id="password" onChange={handleChange} />
+              <Input name="password" type="password" id="password" onChange={handleInputChange} required value={userFormData.password} />
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -157,7 +178,8 @@ export default function LoginCard() {
                 color={'white'}
                 _hover={{
                   bg: 'blue.500',
-                }}>
+                }}
+                >
                 Sign in
               </Button>
             </Stack>
