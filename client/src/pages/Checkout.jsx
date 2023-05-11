@@ -1,5 +1,3 @@
-// @ts-check
-
 import React from 'react'
 import Stepper from '../components/Stepper'
 import { Button } from '@chakra-ui/react'

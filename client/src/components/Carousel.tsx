@@ -1,5 +1,3 @@
-// @ts-check
-
 import React from 'react';
 import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
@@ -23,7 +21,7 @@ const settings = {
 export default function Carousel() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
-  const [slider, setSlider] = React.useState<Slider | null>(null);
+  const [slider, setSlider] = React.useState<typeof Slider | null>(null);
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes

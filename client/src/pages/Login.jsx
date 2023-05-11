@@ -1,6 +1,4 @@
-// @ts-check
 
-import React from 'react'
 // import { FormControl, Input, FormLabel, Button } from '@chakra-ui/react'
 // import LoginLayout from '../layouts/LoginLayout'
 // import { Link } from 'react-router-dom'
@@ -72,6 +70,8 @@ import React from 'react'
 //     </LoginLayout>
 //   )
 // }
+import React from 'react'
+
 import {
   Flex,
   Box,
@@ -85,10 +85,37 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
+import Auth from '../utils/auth';
 
 export default function LoginCard() {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
   return (
     <Flex
       minH={'100vh'}
@@ -99,7 +126,7 @@ export default function LoginCard() {
         <Stack align={'center'}>
           <Heading fontSize={'4xl'}>Sign in to your account</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-            Don't have an account? Sign up <Text as={Link} to="/api/users" color="blue.400" >here!</Text> ✌️
+            Don't have an account? Sign up <Text as={Link} to="/api/users" color="blue.400" >here!</Text>
           </Text>
         </Stack>
         <Box
@@ -108,13 +135,13 @@ export default function LoginCard() {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            <FormControl id="email">
+            <FormControl id="email" onSubmit={handleFormSubmit} >
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input name="email" type="email" />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input type="password" />
+              <Input name="password" type="password" id="password" onChange={handleChange} />
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -125,6 +152,7 @@ export default function LoginCard() {
                 <Link color={'blue.400'} to="/forgot">Forgot password?</Link>
               </Stack>
               <Button
+              type="submit"
                 bg={'blue.400'}
                 color={'white'}
                 _hover={{

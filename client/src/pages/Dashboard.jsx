@@ -1,5 +1,4 @@
-// @ts-check
-
+import React from 'react';
 import { Box, Card, CardBody, CardHeader, CardFooter, SimpleGrid, Text, Flex, Heading, HStack, Button, Divider, Image } from "@chakra-ui/react";
 import { AddIcon } from '@chakra-ui/icons'
 import Footer from '../components/Footer'
@@ -22,7 +21,7 @@ export default function Dashboard() {
   return (
     <>
       <Carousel />
-      <SimpleGrid p="10px" columns={4} spacing={10} minChildWidth="300px" border="1px solid red">
+      <SimpleGrid p="10px" columns={4} spacing={10} minChildWidth="300px" >
         <Card boxShadow="5px 5px 5px gray" borderTop="8px" borderColor="brand.500" bg="brand.700" >
           <CardHeader>
             <Flex gap={5}>

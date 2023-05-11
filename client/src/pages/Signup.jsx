@@ -1,5 +1,4 @@
-// @ts-check
-import React from 'react'
+
 // import { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 
@@ -115,6 +114,8 @@ import React from 'react'
 // };
 
 // export default SignupForm;
+import React from 'react'
+
 import {
   Flex,
   Box,

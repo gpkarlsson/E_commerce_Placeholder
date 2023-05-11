@@ -1,4 +1,4 @@
-// @ts-check
+
 import React from 'react'
 import { Flex, Stack, Heading, Box, FormLabel, Input, Button, FormControl, Text, useToast, useColorModeValue } from '@chakra-ui/react'
 import { EmailIcon } from '@chakra-ui/icons'

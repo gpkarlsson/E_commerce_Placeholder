@@ -1,5 +1,3 @@
-// @ts-check
-
 import React from 'react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel, List, ListItem, ListIcon } from "@chakra-ui/react";
 
