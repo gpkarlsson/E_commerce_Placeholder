@@ -1,5 +1,6 @@
 // @ts-check
 import React from 'react'
+// @ts-ignore
 import { Grid, GridItem } from "@chakra-ui/react"
 import { Outlet } from "react-router-dom"
 
