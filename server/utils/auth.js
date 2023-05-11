@@ -1,3 +1,4 @@
+// @ts-check
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
 

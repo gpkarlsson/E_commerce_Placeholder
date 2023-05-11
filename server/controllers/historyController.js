@@ -1,3 +1,5 @@
+// @ts-check
+
 const { User, History } = require("../models");
 
 module.exports = {

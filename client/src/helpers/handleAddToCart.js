@@ -1,3 +1,4 @@
+// @ts-check
 // const [cartItems, setCartItems] = useState([]);
 import productName from "../pages/Dashboard"
 import productPrice from "../pages/Dashboard"

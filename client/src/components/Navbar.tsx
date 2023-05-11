@@ -1,3 +1,5 @@
+// @ts-check
+
 // import { Flex, Heading, Box, Text, Button, Spacer, HStack, useToast } from "@chakra-ui/react"
 // import { UnlockIcon } from "@chakra-ui/icons"
 // import { Link } from 'react-router-dom' 
@@ -55,7 +57,6 @@
 //   )
 // }
 import React from 'react';
-
 import {
   Box,
   Flex,
@@ -106,6 +107,7 @@ export default function WithSubnavigation() {
             }
             variant={'ghost'}
             aria-label={'Toggle Navigation'}
+            borderRadius="10px 10px 0px 0px"
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>

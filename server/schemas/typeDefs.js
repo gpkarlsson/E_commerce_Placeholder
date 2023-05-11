@@ -18,13 +18,14 @@ const typeDefs = gql`
     }
     type History {
         _id: ID!
-        user_id: Number!
-        order_date: Date!
+        user_id: Int!
+        order_date: String!
         order: [Item]
     }
     #History - user_id: Number! -> user_id: Int!
     #History - order_date: Date! may be causing errors as well?
-    type CartInput {
+
+    input CartInput {
         itemId: String
         user_id: String
         itemName: String
@@ -32,6 +33,7 @@ const typeDefs = gql`
         price: String
         itemDescription: String
     }
+    #type CartInput -> input CartInput
     type Auth {
         token: ID!
         user: User
@@ -46,6 +48,7 @@ const typeDefs = gql`
         currentUser: User
         currentUserItems: UserItems
         currentUserHistory: UserHistory
+        currentUserCart: User
     }
     #Query - currentUserCart not defined in schema
     type Mutation {
@@ -55,11 +58,20 @@ const typeDefs = gql`
         removeItemInCart(Item: CartInput!): User
         emptyCart(User: ID): User
         addItem(user_id: String!, itemName: String!, imageLink: String!, price: String!, itemDescription: String!): Item 
+        removeItem(itemId: ID!): Item
+        checkout(order: [ItemInput]!): History
+    }
+    #The type of Mutation.checkout(order:) must be Input Type but got: [Item]!.
+    input ItemInput {
+        itemId: String
+        user_id: String
+        itemName: String
+        imageLink: String
+        price: String
+        itemDescription: String 
     }
     #Mutation - checkout not defined in schema
-    #Mutation - emptyCart not defined in schema
     #Mutation - removeItem not defined in schema
-
 `;
 
 module.exports = typeDefs;

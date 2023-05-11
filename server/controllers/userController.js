@@ -1,3 +1,5 @@
+// @ts-check
+
 const { User } = require("../models");
 
 module.exports = {
