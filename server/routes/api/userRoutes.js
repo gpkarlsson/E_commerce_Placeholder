@@ -10,9 +10,9 @@ const {
 const { authMiddleware } = require('../../utils/auth');
 
 //add user routes
-router.route('/').post(createUser);
+router.route('/api/users').post(signup);
 
-router.route('/login').post(login);
+router.route('/api/users/login').post(login);
 
 router.route('/mypage').get(authMiddleware, getSingleUser);
 
