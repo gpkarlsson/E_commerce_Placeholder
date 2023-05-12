@@ -10,7 +10,7 @@ const typeDefs = gql`
     }
     type Item {
         _id: ID!
-        user_id: String!
+        user_id: ID!
         itemName: String!
         imageLink: String!
         price: String!
@@ -61,7 +61,7 @@ const typeDefs = gql`
         putItemInCart(Item: CartInput!): User
         removeItemInCart(Item: CartInput!): User
         emptyCart(User: ID): User
-        addItem(user_id: String!, itemName: String!, imageLink: String!, price: String!, itemDescription: String!): Item 
+        addItem(user_id: ID!, itemName: String!, imageLink: String!, price: Int!, itemDescription: String!): Item 
         removeItem(_id: ID!): String
     }
     #The type of Mutation.checkout(order:) must be Input Type but got: [Item]!.

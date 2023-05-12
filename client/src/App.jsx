@@ -32,11 +32,12 @@ import Confirmation from './pages/Confirmation'
 import Signup from './pages/Signup'
 import ForgotPassword from './pages/ForgotPassword'
 import Contact from './pages/Contact'
+import Create from './pages/Create'
 
 
-const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
-});
+// const httpLink = createHttpLink({
+//   uri: 'http://localhost:3001/graphql',
+// });
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
@@ -49,7 +50,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  uri: 'http://localhost:3001/graphql',
   cache: new InMemoryCache(),
 });
 
@@ -61,7 +62,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Dashboard />}/>
-      {/* <Route index element={<Create />}/> */}
+      <Route path="create" element={<Create />}/>
       <Route path="/" element={<Dashboard />} />
       <Route path="profile" element={<Profile />} />
       <Route path="cart" element={<Cart />} />
