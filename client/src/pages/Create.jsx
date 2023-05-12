@@ -39,7 +39,7 @@ const Create = () => {
               data: addItem,
               fragment: gql`
                 fragment NewItem on Item {
-                  id
+                  itemId
                   user_id
                   itemName
                   imageLink
@@ -63,7 +63,7 @@ const Create = () => {
         user_id: 'currentUser', // Replace with actual current user ID
         itemName: itemData.itemName,
         imageLink: itemData.imageLink,
-        price: parseInt(itemData.price),
+        price: parseFloat(itemData.price),
         itemDescription: itemData.itemDescription,
       },
     });

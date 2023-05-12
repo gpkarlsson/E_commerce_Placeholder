@@ -5,24 +5,24 @@ import React from 'react';
 
 // import { faker } from '@faker-js/faker';
 
-// import Carousel from "../components/Carousel";
+import Carousel from "../components/Carousel";
+import Footer from "../components/Footer";
 
 // import { handleAddToCart } from "../helpers/handleAddToCart";
 import { useQuery, gql } from '@apollo/client';
 import ItemCard from '../components/ItemCard';
 // export default function Dashboard() {
 
-  const GET_ITEMS = gql`
-  query GetItems {
-    items {
-      id
-      user_id
-      itemName
-      imageLink
-      price
-      itemDescription
-    }
+const GET_ITEMS = gql`
+query {
+  allItems {
+    _id
+    itemName
+    imageLink
+    price
+    itemDescription
   }
+}
 `;
 
   //   const tasks = useLoaderData()
@@ -39,11 +39,16 @@ import ItemCard from '../components/ItemCard';
     if (error) return<p>Error: {error.message}</p>;
   
     return (
+      <>
+      <Carousel />
       <div>
-        {data.items.map((item) => (
+        {data.allItems.map((item) => (
           <ItemCard key={item.id} item={item} />
         ))}
       </div>
+      <Footer />
+      </>
+
     );
   };
   export default Dashboard

@@ -13,7 +13,7 @@ const typeDefs = gql`
         user_id: ID!
         itemName: String!
         imageLink: String!
-        price: String!
+        price: Float!
         itemDescription: String
     }
     type History {
@@ -61,7 +61,7 @@ const typeDefs = gql`
         putItemInCart(Item: CartInput!): User
         removeItemInCart(Item: CartInput!): User
         emptyCart(User: ID): User
-        addItem(user_id: ID!, itemName: String!, imageLink: String!, price: Int!, itemDescription: String!): Item 
+        addItem(user_id: ID!, itemName: String!, imageLink: String!, price: Float!, itemDescription: String!): Item 
         removeItem(_id: ID!): String
     }
     #The type of Mutation.checkout(order:) must be Input Type but got: [Item]!.
@@ -70,7 +70,7 @@ const typeDefs = gql`
         user_id: String
         itemName: String
         imageLink: String
-        price: String
+        price: Float
         itemDescription: String 
     }
     #Mutation - checkout not defined in schema

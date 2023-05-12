@@ -1,5 +1,3 @@
-// @ts-check
-
 import { chakra } from '@chakra-ui/react'
 
 export const Logo = (props) => (
