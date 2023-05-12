@@ -25,6 +25,9 @@ const resolvers = {
         }
         throw new AuthenticationError('You need to be logged in!');
       },
+      allItems: async (parent, args, context) => {
+          const itemData = await Item.findAll();
+          return itemData;
     },
     Mutation: {
       addUser: async (parent, args) => {

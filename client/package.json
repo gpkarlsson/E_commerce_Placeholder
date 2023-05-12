@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.3.2"
   },
   "devDependencies": {
     "@chakra-ui/icon": "^3.0.16",
@@ -20,7 +22,10 @@
     "@emotion/styled": "^11.10.8",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+<<<<<<< Updated upstream
     "@vitejs/plugin-react": "^4.0.0",
+=======
+>>>>>>> Stashed changes
     "react-icons": "^4.8.0",
     "react-router": "^6.11.1",
     "react-router-dom": "^6.11.1",
@@ -29,7 +34,6 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
-    "framer-motion": "^10.12.7",
-    "vite": "^4.3.2"
+    "framer-motion": "^10.12.7"
   }
 }
