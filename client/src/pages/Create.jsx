@@ -9,6 +9,7 @@ import {
   Button,
   NumberInput,
   NumberInputField,
+  useToast
 } from '@chakra-ui/react';
 import { useMutation } from '@apollo/client';
 import { ADD_ITEM } from '../utils/mutations';
@@ -23,11 +24,23 @@ const Create = () => {
     itemDescription: '',
   });
 
+  const toast = useToast();
+
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    // If the input field is price, convert value to number
+    const inputValue = name === 'price' ? parseFloat(value) : value;
     setItemData({
       ...itemData,
-      [name]: value,
+      [name]: inputValue,
+    });
+  };
+
+  const handlePriceChange = (value) => {
+    setItemData({
+      ...itemData,
+      price: value,
     });
   };
 
@@ -54,7 +67,23 @@ const Create = () => {
         },
       });
     },
+    onCompleted: () => {
+      toast({
+        title: "Success.",
+        description: "Item created successfully.",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+      setItemData({
+        itemName: '',
+        imageLink: '',
+        price: '',
+        itemDescription: '',
+      });
+    },
   });
+
   
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -74,7 +103,6 @@ const Create = () => {
     const userId = decodedToken.data._id;
   
     try {
-      console.log(userId)
       await addItem({
         variables: {
           user_id: userId,
@@ -131,7 +159,7 @@ const Create = () => {
 
         <FormControl id="price" isRequired>
           <FormLabel color="gray.100">Price</FormLabel>
-          <NumberInput min={0}>
+          <NumberInput min={0} value={itemData.price} onChange={handlePriceChange}>
             <NumberInputField
               name="price"
               placeholder="Price"
@@ -167,7 +195,5 @@ const Create = () => {
     </div>
   );
 };
-
-
 
 export default Create;
