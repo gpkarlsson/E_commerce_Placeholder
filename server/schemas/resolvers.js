@@ -91,7 +91,7 @@ const resolvers = {
         await newItem.save();
         return newItem;
       },
-      
+       
         // throw new AuthenticationError('You need to be logged in!');
       
 /*       checkout: async (parent, args, context) => {

@@ -73,7 +73,7 @@ export default function Carousel() {
       width={'full'}
       overflow={'hidden'}
       borderRadius={'xl'}
-      display={{ base: 'none', md: 'flex' }}
+      display={{ base: 'none', md: 'block'}}
       >
         
       {/* CSS files for react-slick */}
