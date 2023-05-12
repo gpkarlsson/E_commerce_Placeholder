@@ -23,14 +23,14 @@ addUser(email: $email, password: $password, username: $username) {
 `;
 
 export const ADD_ITEM = gql`
-  mutation addItem($user_id: String!, $itemName: String!, $imageLink: String!, $price: String!, $itemDescription: String!) {
-addItem(user_id: $user_id, itemName: $itemName, imageLink: $imageLink, price: $price, itemDescription: $itemDescription) {
-      itemId
-      user_id
-      itemName
-      imageLink
-      price
-      itemDescription
+mutation AddItem($user_id: ID!, $itemName: String!, $imageLink: String!, $price: Float!, $itemDescription: String!) {
+  addItem(user_id: $user_id, itemName: $itemName, imageLink: $imageLink, price: $price, itemDescription: $itemDescription) {
+    id
+    user_id
+    itemName
+    imageLink
+    price
+    itemDescription
   }
 }
 `;

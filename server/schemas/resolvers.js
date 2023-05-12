@@ -26,7 +26,7 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
       },
       allItems: async (parent, args, context) => {
-          const itemData = await Item.findAll();
+          const itemData = await Item.find();
           return itemData;
     }
   },
@@ -86,13 +86,14 @@ const resolvers = {
         }
         throw new AuthenticationError('You need to be logged in!');
       },
-      addItem: async (parent, args, context) => {
-        if (context.user) {
-          const newItem = await Item.create(args);
-          return newItem;
-        }
-        throw new AuthenticationError('You need to be logged in!');
+      addItem: async (_, args, context) => {
+        const newItem = new Item(args);
+        await newItem.save();
+        return newItem;
       },
+      
+        // throw new AuthenticationError('You need to be logged in!');
+      
 /*       checkout: async (parent, args, context) => {
         if (context.user) {
           const newHistory = await History.create(args);

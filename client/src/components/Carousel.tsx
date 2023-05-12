@@ -16,6 +16,22 @@ const settings = {
   autoplaySpeed: 5000,
   slidesToShow: 1,
   slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    }
+  ]
 };
 
 export default function Carousel() {
@@ -27,6 +43,21 @@ export default function Carousel() {
   // buttons as the screen size changes
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '10px' });
+
+  // const generateImageURLs = (options: ImageOptions, count: number): string[] => {
+  //   const imageUrls: string[] = [];
+  
+  //   for (let i = 0; i < count; i++) {
+  //     const imageUrl = faker.image.urlLoremFlickr(options);
+  //     imageUrls.push(imageUrl);
+  //   }
+  
+  //   return imageUrls;
+  // };
+  
+  // const options: ImageOptions = { category: 'nature', number: 1 };
+  // const imageUrls: string[] = generateImageURLs(options, 5);
+  
 
   // These are the images used in the slide
   const cards = [
@@ -42,6 +73,7 @@ export default function Carousel() {
       width={'full'}
       overflow={'hidden'}
       borderRadius={'xl'}
+      display={{ base: 'none', md: 'flex' }}
       >
         
       {/* CSS files for react-slick */}
@@ -59,7 +91,7 @@ export default function Carousel() {
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
-        colorScheme="messenger"
+        bg="blue.400"
         borderRadius="full"
         position="absolute"
         left={side}
@@ -72,7 +104,7 @@ export default function Carousel() {
       {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
-        colorScheme="messenger"
+        bg="blue.400"
         borderRadius="full"
         position="absolute"
         right={side}

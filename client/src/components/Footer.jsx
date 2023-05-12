@@ -23,24 +23,27 @@ export default function Footer() {
           <ButtonGroup variant="ghost">
             <IconButton
               as="a"
-              href="#"
+              href="https://www.linkedin.com/in/gordon-karlsson"
               aria-label="LinkedIn"
               icon={<FaLinkedin fontSize="2rem" />}
+              color="gray.500"
             />
             <IconButton
               as="a"
               href="https://github.com/gpkarlsson/E_commerce_Placeholder"
               aria-label="GitHub"
               icon={<FaGithub fontSize="2rem" />}
+              color="gray.500"
             />
             <IconButton
               as="a"
               href="#"
               aria-label="Twitter"
               icon={<FaTwitter fontSize="2rem" />}
+              color="gray.500"
             />
           </ButtonGroup>
-          <Text textAlign="center" fontSize="sm" mt={2}>&copy;  2023 Devin Hoffmaster, Gordon Karlsson, Stephen Merki, Ben Ropa. </Text>
+          <Text textAlign="center" fontSize="sm" mt={2} color="gray.500">&copy;  2023 Devin Hoffmaster, Gordon Karlsson, Stephen Merki, Ben Ropa. </Text>
         </Flex>
       </Stack>
     </Container>
