@@ -15,8 +15,8 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@vitejs/plugin-react": "^4.0.0",
-    "vite": "^4.3.2",
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.2.0",
+    "vite": "^4.3.2"
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
@@ -24,7 +24,7 @@
     "dotenv": "^16.0.3",
     "graphql": "^15.8.0",
     "jwt-decode": "^3.1.2",
-    "vite": "^4.3.2",
-    "react-hook-form": "^7.43.9"
+    "react-hook-form": "^7.43.9",
+    "vite": "^4.3.2"
   }
 }
