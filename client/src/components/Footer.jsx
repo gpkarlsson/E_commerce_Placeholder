@@ -40,7 +40,7 @@ export default function Footer() {
               icon={<FaTwitter fontSize="2rem" />}
             />
           </ButtonGroup>
-          <Text textAlign="center" fontSize="sm" mt={2} justify="center">&copy;  2023 Devin Hoffmaster, Gordon Karlsson, Stephen Merki, Ben Ropa. </Text>
+          <Text textAlign="center" fontSize="sm" mt={2}>&copy;  2023 Devin Hoffmaster, Gordon Karlsson, Stephen Merki, Ben Ropa. </Text>
         </Flex>
       </Stack>
     </Container>
