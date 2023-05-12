@@ -1,4 +1,4 @@
-const { AuthenticationError } = require('apollo-server-errors');
+const { AuthenticationError, GraphQLError } = require('apollo-server-errors');
 const { User, Item, History } = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -28,7 +28,8 @@ const resolvers = {
       allItems: async (parent, args, context) => {
           const itemData = await Item.findAll();
           return itemData;
-    },
+    }
+  },
     Mutation: {
       addUser: async (parent, args) => {
         const user = await User.create(args);
@@ -116,7 +117,7 @@ const resolvers = {
           return args.item._id;
         }
         throw new AuthenticationError('You need to be logged in!');
-      }
+      },
     },
-  }
+  };
   module.exports = resolvers;
