@@ -44,10 +44,14 @@ const typeDefs = gql`
     type UserItems {
         items: [Item]
     }
+    type AllItems {
+        items: [Item]
+    }
     type Query {
         currentUser: User
-        currentUserItems: UserItems
-        currentUserHistory: UserHistory
+        currentUserItems: [Item]
+        currentUserHistory: [Item]
+        allItems: [Item]
     }
     #Query - currentUserCart not defined in schema
     type Mutation {
