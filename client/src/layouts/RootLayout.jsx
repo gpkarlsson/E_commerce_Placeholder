@@ -11,12 +11,12 @@ import Sidebar from "../components/Sidebar"
 export default function RootLayout() {
   return (
    
-    <Grid templateColumns="repeat(6, 1fr)" bg="#E0DEE1">
+    <Grid templateColumns="repeat(6, 1fr)" bg="#E0E2DB" background='#BCCDDA'>
       {/* sidebar */}
       <GridItem
         as="aside"
         colSpan={{ base: 6, lg: 2, xl: 1 }} 
-        bg="brand.600"
+        background='#0C1013'
         minHeight={{ lg: '100vh' }}
         p={{ base: '20px', lg: '30px' }}
       >

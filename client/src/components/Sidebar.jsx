@@ -7,8 +7,8 @@ import {SlBasket, SlHome} from 'react-icons/sl'
 import {FiUser} from 'react-icons/fi'
 export default function Sidebar() {
   return (
-    <List color="brand.400" fontWeight="bold" fontSize="1.2em" spacing={8} border="1px solid red" >
-        <ListItem _hover={{color: "brand.900", bg: "white", transition: "0.3s" }}>
+    <List background='#24A4FA' boxShadow='xl' rounded='md'color="#0C1013" fontWeight="bold" fontSize="1.2em" spacing={8} border="1px solid red" >
+        <ListItem _hover={{color: "brand.900", bg: "white", transition: "0.3s" }} rounded='md'>
             <NavLink to="/" >
                 <ListIcon as={SlHome} color="brand.100" />
                     Home              
@@ -20,13 +20,13 @@ export default function Sidebar() {
                 New Task
             </NavLink>
         </ListItem> */}
-        <ListItem _hover={{color: "brand.900", bg: "white", transition: "0.3s" }}>
+        <ListItem _hover={{color: "brand.900", bg: "white", transition: "0.3s"}} rounded='md'>
             <NavLink to="/profile">
             <ListIcon as={FiUser} color="brand.400" />
                 Profile        
             </NavLink>
         </ListItem>
-        <ListItem _hover={{color: "brand.900", bg: "white", transition: "0.3s" }}>
+        <ListItem _hover={{color: "brand.900", bg: "white", transition: "0.3s" }} rounded='md'>
             <NavLink to="/cart">
             <ListIcon as={SlBasket} color="brand.400" />
                 Cart        
