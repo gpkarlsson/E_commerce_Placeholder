@@ -203,112 +203,125 @@
 // }
 
 
-
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 import {
   Box,
   FormControl,
   FormLabel,
   Input,
+  FormErrorMessage,
+  Alert,
+  AlertIcon,
+  AlertDescription,
+  CloseButton,
   Button,
-  Checkbox,
-  useToast,
-  Heading,
 } from '@chakra-ui/react';
-import { useForm } from 'react-hook-form';
-import bcrypt from 'bcryptjs';
-import Signup from './Signup'; // Import the Signup component
-import { useState } from 'react';
 
-const passwordValidation = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+const LoginForm = () => {
+  // set initial form state
+  const [userFormData, setUserFormData] = useState({ 
+    email: '', 
+    password: '' 
+  });
 
-export default function Login() {
-  const [rememberMe, setRememberMe] = useState(false);
-  const toast = useToast();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  // set state for form validation
+  const [validated] = useState(false);
+  // set state for alert
+  const [showAlert, setShowAlert] = useState(false);
 
-  const onSubmit = async (data) => {
-    const hashedPassword = await bcrypt.hash(data.password, 10);
+  const [loginUser, { error, data }] = useMutation(LOGIN_USER);
 
-    // Perform the login API call and handle response
-    try {
-      const response = await fetch('/api/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: data.email,
-          password: hashedPassword,
-          rememberMe: rememberMe,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Login failed');
-      }
-
-      toast({
-        title: 'Logged in successfully!',
-        status: 'success',
-        duration: 5000,
-        isClosable: true,
-      });
-
-      // Redirect to the home page after successful login
-      // Replace '/' with the actual path to the home page
-      window.location.href = '/';
-    } catch (error) {
-      console.error(error);
-      toast({
-        title: 'Login failed',
-        status: 'error',
-        duration: 5000,
-        isClosable: true,
-      });
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
     }
+  }, [error]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    setUserFormData({
+      ...userFormData,
+      [name]: value 
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await loginUser({
+        variables: { ...userFormData },
+      });
+
+      Auth.login(data.loginUser.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setUserFormData({
+      email: '',
+      password: '',
+    });
   };
 
   return (
-    <Box>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Heading>Log In</Heading>
+    <>
+      <Box as="form" noValidate onSubmit={handleFormSubmit}>
+        <Alert status="error" display={showAlert ? 'flex' : 'none'}>
+          <AlertIcon />
+          <AlertDescription>Something went wrong with your login!</AlertDescription>
+          <CloseButton position="absolute" right="8px" top="8px" onClick={() => setShowAlert(false)} />
+        </Alert>
+    
         <FormControl id="email" isRequired>
-          <FormLabel>Email address</FormLabel>
-          <Input type="email" {...register('email', { required: true })} />
+          <FormLabel>Email</FormLabel>
+          <Input
+            type="email"
+            placeholder="Your email address"
+            name="email"
+            onChange={handleInputChange}
+            value={userFormData.email}
+          />
+          <FormErrorMessage>Email is required!</FormErrorMessage>
         </FormControl>
+    
         <FormControl id="password" isRequired>
           <FormLabel>Password</FormLabel>
           <Input
             type="password"
-            {...register('password', {
-              required: true,
-              pattern: passwordValidation,
-            })}
+            placeholder="Your password"
+            name="password"
+            onChange={handleInputChange}
+            value={userFormData.password}
           />
-          {errors.password && (
-            <p>
-              Password must have at least 8 characters, one uppercase letter, one lowercase letter, one number, and one symbol.
-            </p>
-          )}
+          <FormErrorMessage>Password is required!</FormErrorMessage>
         </FormControl>
-        <Checkbox
-          isChecked={rememberMe}
-          onChange={(e) => setRememberMe(e.target.checked)}
+        <Button
+          mt={4}
+          colorScheme="teal"
+          isLoading={false}
+          type="submit"
+          isDisabled={
+            !(userFormData.email && userFormData.password)
+          }
         >
-          Remember me
-        </Checkbox>
-        <Button mt={8} colorScheme="blue" type="submit">
-          Log in
+          Submit
         </Button>
-      </form>
-      
-      <Signup /> {/* Render the Signup component */}
-    </Box>
-  );
-}
+      </Box>
+    </>
+    );
+  };
+  
+  export default LoginForm; 
