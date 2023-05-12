@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { useMutation } from '@apollo/client';
 import { ADD_ITEM } from '../utils/mutations';
+import Footer from '../components/Footer';
 
 
 const Create = () => {
@@ -39,7 +40,7 @@ const Create = () => {
               data: addItem,
               fragment: gql`
                 fragment NewItem on Item {
-                  itemId
+                  itemd
                   user_id
                   itemName
                   imageLink
@@ -73,64 +74,80 @@ const Create = () => {
     
 
   return (
-    <Box as="form" noValidate onSubmit={handleFormSubmit}>
-      <FormControl id="itemName" isRequired>
-        <FormLabel>Item Name</FormLabel>
-        <Input
-          type="text"
-          name="itemName"
-          placeholder="Item name"
-          onChange={handleInputChange}
-          value={itemData.itemName}
-        />
-        <FormErrorMessage>Item name is required!</FormErrorMessage>
-      </FormControl>
-
-      <FormControl id="imageLink" isRequired>
-        <FormLabel>Image Link</FormLabel>
-        <Input
-          type="text"
-          name="imageLink"
-          placeholder="Image link"
-          onChange={handleInputChange}
-          value={itemData.imageLink}
-        />
-        <FormErrorMessage>Image link is required!</FormErrorMessage>
-      </FormControl>
-
-      <FormControl id="price" isRequired>
-        <FormLabel>Price</FormLabel>
-        <NumberInput min={0}>
-          <NumberInputField
-            name="price"
-            placeholder="Price"
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Box
+        as="form"
+        noValidate
+        onSubmit={handleFormSubmit}
+        bg="#2a2d2f"
+        flex="1"
+        p={4}
+      >
+        <FormControl id="itemName" isRequired>
+          <FormLabel color="gray.100">Item Name</FormLabel>
+          <Input
+            type="text"
+            name="itemName"
+            placeholder="Item name"
             onChange={handleInputChange}
-            value={itemData.price}
+            value={itemData.itemName}
+            bg="gray.300"
           />
-        </NumberInput>
-        <FormErrorMessage>Price is required!</FormErrorMessage>
-      </FormControl>
+          <FormErrorMessage>Item name is required!</FormErrorMessage>
+        </FormControl>
 
-      <FormControl id="itemDescription" isRequired>
-        <FormLabel>Item Description</FormLabel>
-        <Textarea
-          name="itemDescription"
-          placeholder="Item description"
-          onChange={handleInputChange}
-          value={itemData.itemDescription}
-          minLength={1}
-          maxLength={280}
-        />
-        <FormErrorMessage>
-          Please add a description between 1 and 280 characters!
-        </FormErrorMessage>
-      </FormControl>
+        <FormControl id="imageLink" isRequired>
+          <FormLabel color="gray.100">Image Link</FormLabel>
+          <Input
+            type="text"
+            name="imageLink"
+            placeholder="Image Link"
+            onChange={handleInputChange}
+            value={itemData.imageLink}
+            bg="gray.300"
+          />
+          <FormErrorMessage>Image Link is required!</FormErrorMessage>
+        </FormControl>
 
-      <Button mt={4} colorScheme="teal" type="submit">
-        Create Item
-      </Button>
-    </Box>
+        <FormControl id="price" isRequired>
+          <FormLabel color="gray.100">Price</FormLabel>
+          <NumberInput min={0}>
+            <NumberInputField
+              name="price"
+              placeholder="Price"
+              onChange={handleInputChange}
+              value={itemData.price}
+              bg="gray.300"
+            />
+          </NumberInput>
+          <FormErrorMessage>Price is required!</FormErrorMessage>
+        </FormControl>
+
+        <FormControl id="itemDescription" isRequired>
+          <FormLabel color="gray.100">Item Description</FormLabel>
+          <Textarea
+            name="itemDescription"
+            placeholder="Item Description"
+            onChange={handleInputChange}
+            value={itemData.itemDescription}
+            minLength={1}
+            maxLength={280}
+            bg="gray.300"
+          />
+          <FormErrorMessage>
+            Please add a description between 1 and 280 characters!
+          </FormErrorMessage>
+        </FormControl>
+
+        <Button mt={4} colorScheme="teal" type="submit">
+          Create Item
+        </Button>
+      </Box>
+      <Footer />
+    </div>
   );
 };
+
+
 
 export default Create;

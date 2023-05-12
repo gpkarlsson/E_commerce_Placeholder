@@ -16,6 +16,22 @@ const settings = {
   autoplaySpeed: 5000,
   slidesToShow: 1,
   slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    }
+  ]
 };
 
 export default function Carousel() {
@@ -57,6 +73,7 @@ export default function Carousel() {
       width={'full'}
       overflow={'hidden'}
       borderRadius={'xl'}
+      display={{ base: 'none', md: 'flex' }}
       >
         
       {/* CSS files for react-slick */}
@@ -74,7 +91,7 @@ export default function Carousel() {
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
-        colorScheme="messenger"
+        bg="blue.400"
         borderRadius="full"
         position="absolute"
         left={side}
@@ -87,7 +104,7 @@ export default function Carousel() {
       {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
-        colorScheme="messenger"
+        bg="blue.400"
         borderRadius="full"
         position="absolute"
         right={side}

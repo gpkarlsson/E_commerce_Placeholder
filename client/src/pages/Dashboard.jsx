@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 // import { handleAddToCart } from "../helpers/handleAddToCart";
 import { useQuery, gql } from '@apollo/client';
 import ItemCard from '../components/ItemCard';
+import { SimpleGrid } from '@chakra-ui/react';
 // export default function Dashboard() {
 
 const GET_ITEMS = gql`
@@ -41,11 +42,11 @@ query {
     return (
       <>
       <Carousel />
-      <div>
+      <SimpleGrid columns={[1, 1, 2]} spacing="40px" mt="20px">
         {data.allItems.map((item) => (
-          <ItemCard key={item.id} item={item} />
+          <ItemCard key={item._id} item={item} />
         ))}
-      </div>
+      </SimpleGrid>
       <Footer />
       </>
 

@@ -1,38 +1,27 @@
 // @ts-check
 import React from 'react'
 // @ts-ignore
-import { Grid, GridItem } from "@chakra-ui/react"
+import { Grid, GridItem, Flex} from "@chakra-ui/react"
 import { Outlet } from "react-router-dom"
 
 // components
 import Navbar from "../components/Navbar"
-import Sidebar from "../components/Sidebar"
+
 
 export default function RootLayout() {
   return (
    
-    <Grid templateColumns="repeat(6, 1fr)" bg="#E0DEE1">
-      {/* sidebar */}
-      <GridItem
-        as="aside"
-        colSpan={{ base: 6, lg: 2, xl: 1 }} 
-        bg="brand.600"
-        minHeight={{ lg: '100vh' }}
-        p={{ base: '20px', lg: '30px' }}
-      >
-        <Sidebar />
-      </GridItem>
-
-      {/* main content & navbar */}
-      <GridItem
-        as="main"
-        colSpan={{ base: 6, lg: 4, xl: 5 }} 
-        p="40px"
-      >
+    <Grid bg="#2a2d2f">
+    {/* main content & navbar */}
+    <GridItem as={Flex} justify="center" align="center">
+      <Flex direction="column" maxWidth="1600px" width={{ base: '90vw', md: '80vw', lg: '90vw' }}>
         <Navbar />
         <Outlet />
-      </GridItem>
-    </Grid>
-    
-  )
+      </Flex>
+    </GridItem>
+  </Grid>
+)
 }
+
+    
+  

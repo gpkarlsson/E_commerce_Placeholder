@@ -7,7 +7,7 @@ import {SlBasket, SlHome} from 'react-icons/sl'
 import {FiUser} from 'react-icons/fi'
 export default function Sidebar() {
   return (
-    <List color="brand.400" fontWeight="bold" fontSize="1.2em" spacing={8} border="1px solid red" >
+    <List color="brand.400" fontWeight="bold" fontSize="1.2em" spacing={8} width={"200px"}>
         <ListItem _hover={{color: "brand.900", bg: "white", transition: "0.3s" }}>
             <NavLink to="/" >
                 <ListIcon as={SlHome} color="brand.100" />

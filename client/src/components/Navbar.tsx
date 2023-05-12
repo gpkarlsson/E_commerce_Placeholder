@@ -1,61 +1,3 @@
-// @ts-check
-
-// import { Flex, Heading, Box, Text, Button, Spacer, HStack, useToast } from "@chakra-ui/react"
-// import { UnlockIcon } from "@chakra-ui/icons"
-// import { Link } from 'react-router-dom' 
-
-// export default function Navbar() {
-
-//     const toast = useToast()
-
-//     const showToast = () => {
-//         toast({
-//             title: "Logged out",
-//             description: "Successfully logged out",
-//             duration: 5000,
-//             isClosable: true,
-//             status: "success",
-//             position: "top",
-//             icon: <UnlockIcon />
-//         })
-//     }
-
-//   return (
-//     // how can i make this responsive? 
-//     //I want the navbar hstack components to be in a column on mobile, and in a row on desktop 
-//     <Flex 
-//     as="nav" 
-//     p="10px" 
-//     mb="40px" 
-//     alignItems="center" 
-//     border="1px solid red" 
-//     bg="brand.600"
-//     flexDirection={{ base: "column", md: "row", lg: "row"}}
-//     overflowX={{ base: "auto", md: "visible" }}
-//     >
-//       <Heading as="h1" fontSize="1.5em" color="brand.400">Generic E-Commerce Site #3</Heading>
-//       <Spacer />
-
-//       <HStack 
-//         spacing="20px"
-//         mt={{ base: "10px", md: "0" }}
-//         w={{ base: "100%", md: "auto" }}
-//         flexWrap={{ base: "wrap", md: "nowrap" }}
-//         justifyContent={{ base: "center", md: "flex-end" }}
-//         > 
-//         <Box bg="gray.200" p="10px 15px" borderRadius="50%">G</Box>
-//         <Text>gordon@email.dev</Text>
-//         <Link to="/api/users/login">
-//         <Button bg="brand.900" color="brand.700" onClick={showToast} >Logout</Button>
-//         </Link>
-//         <Link to="/cart">
-//         <Button bg="brand.900" color="brand.700">Checkout</Button>
-//         </Link>
-//       </HStack>
-//     </Flex>
-
-//   )
-// }
 import React from 'react';
 import {
   Box,
@@ -90,12 +32,12 @@ export default function WithSubnavigation() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
+        bg={useColorModeValue('#181a1b', 'gray.800')}
+        color={useColorModeValue('white', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        borderBottom={1}
+        // borderBottom={1}
         borderStyle={'solid'}
         borderColor={useColorModeValue('gray.200', 'gray.900')}
         align={'center'}>
@@ -163,9 +105,9 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue('gray.600', 'gray.200');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
-  const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+  const linkColor = useColorModeValue('white', 'gray.200');
+  const linkHoverColor = useColorModeValue('blue.400', 'darkblue');
+  const popoverContentBgColor = useColorModeValue('#181a1b', 'gray.800');
 
   return (
     <Stack direction={'row'} spacing={4}>
@@ -246,7 +188,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
+      bg={useColorModeValue('#181a1b', 'gray.800')}
       p={4}
       display={{ md: 'none' }}>
       {NAV_ITEMS.map((navItem) => (
@@ -272,7 +214,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}>
         <Text
           fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}>
+          color={useColorModeValue('LightGray', 'gray.200')}>
           {label}
         </Text>
         {children && (
@@ -337,18 +279,18 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: isAuthenticated() ? 'Sign Out' : 'Sign In',
-    href: isAuthenticated() ? '/signout' : '/signin',
+    href: isAuthenticated() ? '/signout' : '/api/users/login',
   },
   !isAuthenticated() && {
     label: 'Sign Up',
-    href: '/signup',
+    href: '/api/users',
   },
   {
-    label: 'Something',
-    href: '#',
+    label: 'List New Item',
+    href: '/create',
   },
-  {
-    label: 'Something Else',
-    href: '#',
-  },
+  // {
+  //   label: 'Something Else',
+  //   href: '#',
+  // },
 ].filter(Boolean) as Array<NavItem>; // filter out falsey values from the array and assert the result as Array<NavItem>
