@@ -53,6 +53,7 @@ const typeDefs = gql`
         currentUserHistory: [Item]
         allItems: [Item]
     }
+
     #Query - currentUserCart not defined in schema
     type Mutation {
         login(email: String!, password: String!): Auth
