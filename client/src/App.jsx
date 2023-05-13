@@ -54,9 +54,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
-
-
 // router and routes
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -80,6 +77,7 @@ const router = createBrowserRouter(
 );
 
 //important comment
+//Another super important comment
 
 export default function App() {
   return (

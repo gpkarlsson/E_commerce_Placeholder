@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import {
   Box,
   Flex,
@@ -23,10 +23,27 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 
+const isAuthenticated = (): boolean => {
+  // get token from local storage
+  const token = localStorage.getItem('id_token');
+
+  // check if token exists
+  if (token) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+let labelValue = (): string => {
+  if(isAuthenticated()) {
+    return `${ 'Sign Out' }`;
+  }
+  return 'Sign In';
+};
 
 export default function WithSubnavigation() {
 
- 
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -60,7 +77,6 @@ export default function WithSubnavigation() {
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}>
-            
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -78,8 +94,14 @@ export default function WithSubnavigation() {
             fontSize={'sm'}
             fontWeight={400}
             variant={'link'}
-            href={'/api/users/login'}>
-            Sign In
+            onClick={(event: any) => {
+              if(isAuthenticated()) {
+                localStorage.removeItem("id_token");
+                window.location.href = '/';
+              }
+              window.location.href = '/api/users/login';
+            }}>
+            { labelValue() }
           </Button>
           <Button
             as={'a'}
@@ -255,18 +277,6 @@ interface NavItem {
   href?: string;
 }
 
-const isAuthenticated = (): boolean => {
-  // get token from local storage
-  const token = localStorage.getItem('jwtToken');
-
-  // check if token exists
-  if (token) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 
 const NAV_ITEMS: Array<NavItem> = [
   {
@@ -277,14 +287,10 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Cart',
     href: '/cart',
   },
-  {
-    label: isAuthenticated() ? 'Sign Out' : 'Sign In',
-    href: isAuthenticated() ? '/signout' : '/api/users/login',
-  },
-  !isAuthenticated() && {
-    label: 'Sign Up',
-    href: '/api/users',
-  },
+  // {
+  //   label: isAuthenticated() ? 'Sign Out' : 'Sign In',
+  //   href: isAuthenticated() ? `${ localStorage.removeItem("id_token"), '/' }` : '/api/users/login',
+  // },
   {
     label: 'List New Item',
     href: '/create',
