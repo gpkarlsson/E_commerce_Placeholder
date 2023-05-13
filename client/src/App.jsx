@@ -64,12 +64,12 @@ const router = createBrowserRouter(
       <Route path="profile" element={<Profile />} />
       <Route path="cart" element={<Cart />} />
       <Route path="*" element={<NotFound />} />
-      <Route path="/api/users/login" element={<LoginLayout> <Login /> </LoginLayout>} />
+      <Route path="login" element={<LoginLayout> <Login /> </LoginLayout>} />
       <Route path="checkout" element={<Checkout />}></Route>
       <Route path="shipping" element={<Shipping />}></Route>
       <Route path="billing" element={<Billing />}></Route>
       <Route path="confirmation" element={<Confirmation />}></Route>
-      <Route path="/api/users/" element={<Signup />}></Route>
+      <Route path="signup" element={<Signup />}></Route>
       <Route path="forgot" element={<ForgotPassword />}></Route>
       <Route path="contact" element={<Contact />}></Route>
     </Route>

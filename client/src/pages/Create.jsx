@@ -96,7 +96,7 @@ const Create = () => {
     } catch (error) {
       console.error('Failed to decode JWT:', error);
       // Redirect the user to the login page
-      window.location.href = '/api/users/login';
+      window.location.href = '/login';
       return;
     }
   

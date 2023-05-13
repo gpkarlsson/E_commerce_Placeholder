@@ -99,7 +99,7 @@ export default function WithSubnavigation() {
                 localStorage.removeItem("id_token");
                 window.location.href = '/';
               }
-              window.location.href = '/api/users/login';
+              window.location.href = '/login';
             }}>
             { labelValue() }
           </Button>
@@ -110,7 +110,7 @@ export default function WithSubnavigation() {
             fontWeight={600}
             color={'white'}
             bg={'pink.400'}
-            href={'/api/users'}
+            href={'/signup'}
             _hover={{
               bg: 'pink.300',
             }}>
