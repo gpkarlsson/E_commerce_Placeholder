@@ -4,9 +4,9 @@ import productName from "../pages/Dashboard"
 import productPrice from "../pages/Dashboard"
 // import productAdjective from "../pages/Dashboard"
 // import productDescription from "../pages/Dashboard"
-// import { useState } from "react";
+import { useState } from "react";
 
-// const [cartItems, setCartItems] = useState([]);
+const [cartItems, setCartItems] = useState([]);
 
 const addToCart = (product) => {
   handleAddToCart(product, cartItems, setCartItems);
