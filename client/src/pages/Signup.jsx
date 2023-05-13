@@ -74,7 +74,6 @@ const SignupForm = () => {
   };
 
   return (
-    
     <>
       {/* This is needed for the validation functionality above */}
       <Box as="form" noValidate onSubmit={handleFormSubmit}>
@@ -124,7 +123,7 @@ const SignupForm = () => {
           mt={4}
           colorScheme="teal"
           isLoading={false}
-          type="  submit"
+          type="submit"
           isDisabled={
             !(userFormData.username && userFormData.email && userFormData.password)
           }

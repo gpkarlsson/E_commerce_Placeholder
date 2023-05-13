@@ -9,11 +9,12 @@ import {
   Button,
   NumberInput,
   NumberInputField,
+  useToast
 } from '@chakra-ui/react';
 import { useMutation } from '@apollo/client';
 import { ADD_ITEM } from '../utils/mutations';
 import Footer from '../components/Footer';
-
+import jwt_decode from 'jwt-decode'
 
 const Create = () => {
   const [itemData, setItemData] = useState({
@@ -23,11 +24,23 @@ const Create = () => {
     itemDescription: '',
   });
 
+  const toast = useToast();
+
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    // If the input field is price, convert value to number
+    const inputValue = name === 'price' ? parseFloat(value) : value;
     setItemData({
       ...itemData,
-      [name]: value,
+      [name]: inputValue,
+    });
+  };
+
+  const handlePriceChange = (value) => {
+    setItemData({
+      ...itemData,
+      price: value,
     });
   };
 
@@ -40,7 +53,7 @@ const Create = () => {
               data: addItem,
               fragment: gql`
                 fragment NewItem on Item {
-                  itemd
+                  id
                   user_id
                   itemName
                   imageLink
@@ -54,21 +67,56 @@ const Create = () => {
         },
       });
     },
+    onCompleted: () => {
+      toast({
+        title: "Success.",
+        description: "Item created successfully.",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+      setItemData({
+        itemName: '',
+        imageLink: '',
+        price: '',
+        itemDescription: '',
+      });
+    },
   });
+
   
-  const handleFormSubmit = (event) => {
-    console.log(itemData)
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    addItem({
-      variables: {
-        user_id: 'currentUser', // Replace with actual current user ID
-        itemName: itemData.itemName,
-        imageLink: itemData.imageLink,
-        price: parseFloat(itemData.price),
-        itemDescription: itemData.itemDescription,
-      },
-    });
+  
+    const token = localStorage.getItem('id_token');
+    
+    let decodedToken;
+    try {
+      decodedToken = jwt_decode(token);
+    } catch (error) {
+      console.error('Failed to decode JWT:', error);
+      // Redirect the user to the login page
+      window.location.href = '/api/users/login';
+      return;
+    }
+  
+    const userId = decodedToken.data._id;
+  
+    try {
+      await addItem({
+        variables: {
+          user_id: userId,
+          itemName: itemData.itemName,
+          imageLink: itemData.imageLink,
+          price: parseFloat(itemData.price),
+          itemDescription: itemData.itemDescription,
+        },
+      });
+    } catch (error) {
+      console.error('Failed to add item:', error);
+    }
   };
+
     // Add logic to create a new item using the itemData state
     // HINT: You will need to use the ADD_ITEM mutation and provide the input from the form
     
@@ -111,7 +159,7 @@ const Create = () => {
 
         <FormControl id="price" isRequired>
           <FormLabel color="gray.100">Price</FormLabel>
-          <NumberInput min={0}>
+          <NumberInput min={0} value={itemData.price} onChange={handlePriceChange}>
             <NumberInputField
               name="price"
               placeholder="Price"
@@ -147,7 +195,5 @@ const Create = () => {
     </div>
   );
 };
-
-
 
 export default Create;
