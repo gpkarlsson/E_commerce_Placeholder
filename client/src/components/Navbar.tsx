@@ -37,10 +37,17 @@ const isAuthenticated = (): boolean => {
 
 let labelValue = (): string => {
   if(isAuthenticated()) {
-    return `${ 'Sign Out' }`;
+    return 'Sign Out';
+  }
+  return 'Sign Up';
+};
+
+let otherLabelValue = (): string => {
+  if(isAuthenticated()) {
+    return '';
   }
   return 'Sign In';
-};
+}
 
 export default function WithSubnavigation() {
 
@@ -95,13 +102,11 @@ export default function WithSubnavigation() {
             fontWeight={400}
             variant={'link'}
             onClick={(event: any) => {
-              if(isAuthenticated()) {
-                localStorage.removeItem("id_token");
-                window.location.href = '/';
+              if(!isAuthenticated()) {
+                window.location.href = '/login';
               }
-              window.location.href = '/login';
             }}>
-            { labelValue() }
+            { otherLabelValue() }
           </Button>
           <Button
             as={'a'}
@@ -110,11 +115,18 @@ export default function WithSubnavigation() {
             fontWeight={600}
             color={'white'}
             bg={'pink.400'}
-            href={'/signup'}
+            onClick={(event: any) => {
+              if(isAuthenticated()) {
+                localStorage.removeItem("id_token");
+                window.location.href = '/';
+              } else {
+                window.location.href = '/signup';
+              }
+            }}
             _hover={{
               bg: 'pink.300',
             }}>
-            Sign Up
+            { labelValue() }
           </Button>
         </Stack>
       </Flex>
