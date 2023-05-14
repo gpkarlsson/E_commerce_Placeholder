@@ -75,9 +75,6 @@ const router = createBrowserRouter(
   ),
 );
 
-//important comment
-//Another super important comment
-
 export default function App() {
   return (
     <ApolloProvider client={client}>

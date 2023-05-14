@@ -3,7 +3,7 @@ import { React, useState } from 'react';
 // import { AddIcon } from '@chakra-ui/icons'
 // import Footer from '../components/Footer'
 
-// import { faker } from '@faker-js/faker';
+
 
 import Carousel from "../components/Carousel";
 import Footer from "../components/Footer";

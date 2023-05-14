@@ -3,25 +3,10 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel, List, ListItem, ListIcon } fro
 
 import { CalendarIcon, EmailIcon, InfoIcon, InfoOutlineIcon } from "@chakra-ui/icons";
 
-import { faker } from '@faker-js/faker';
 
 import Footer from '../components/Footer'
 
 export default function Profile() {
-
-  const randomName = faker.name.fullName();
-  const randomEmail = faker.internet.email();
-  const randomStreetAddress = faker.address.streetAddress();
-  const randomCity = faker.address.city();
-  const randomStateAbbr = faker.address.stateAbbr();
-  const randomZipCode = faker.address.zipCode();
-  const productName = faker.commerce.productName();
-  // const productDescription = faker.commerce.productDescription();
-  const productAdjective = faker.commerce.productAdjective();
-  const productPrice = faker.commerce.price(100, 200, 0, '$');
-  // const randomOrderDate = faker.date.past();
-  // const randomBirthDate = faker.date.birthdate();
-
 
   return (
     <>
@@ -38,30 +23,30 @@ export default function Profile() {
             <List spacing={4}>
               <ListItem>
                 <ListIcon as={EmailIcon} />
-                Name: {randomName}
+                Name: Lorem Ipsum
               </ListItem>
               <ListItem>
                 <ListIcon as={CalendarIcon} />
-                Birthdate:
+                Birthdate: 10/20/1950
               </ListItem>
               <ListItem>
                 <ListIcon as={EmailIcon} />
-                Email: {randomEmail}
+                Email: lorem@ipsum.com
               </ListItem>
               <ListItem>
                 <ListIcon as={InfoIcon} />
-                Billing Address: {randomStreetAddress}, {randomCity}, {randomStateAbbr}, {randomZipCode}
+                Billing Address: Lorem ipsum dolor sit amet.
               </ListItem>
               <ListItem>
                 <ListIcon as={InfoOutlineIcon} />
-                Shipping Address: {randomStreetAddress}, {randomCity}, {randomStateAbbr}, {randomZipCode}
+                Shipping Address: 123 Lorem Ipsum St
               </ListItem>
             </List>
           </TabPanel>
           <TabPanel>
             <List spacing={4}>
               <ListItem>
-                Last Order: {productAdjective} {productName} {productPrice}
+                Last Order: 1 Lorem Ipsum
               </ListItem>
             </List>
           </TabPanel>

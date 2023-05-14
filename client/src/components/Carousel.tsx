@@ -44,21 +44,6 @@ export default function Carousel() {
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '10px' });
 
-  // const generateImageURLs = (options: ImageOptions, count: number): string[] => {
-  //   const imageUrls: string[] = [];
-  
-  //   for (let i = 0; i < count; i++) {
-  //     const imageUrl = faker.image.urlLoremFlickr(options);
-  //     imageUrls.push(imageUrl);
-  //   }
-  
-  //   return imageUrls;
-  // };
-  
-  // const options: ImageOptions = { category: 'nature', number: 1 };
-  // const imageUrls: string[] = generateImageURLs(options, 5);
-  
-
   // These are the images used in the slide
   const cards = [
     'https://images.unsplash.com/photo-1682680294067-e7df53c8ed6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',

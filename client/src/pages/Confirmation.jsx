@@ -1,25 +1,11 @@
 import React from 'react'
 
 // import { v4  as uuidv4 } from 'uuid';
-// import faker from '@faker-js/faker';
 
 // import { Box, Button, Divider, Heading, Text, VStack } from '@chakra-ui/react';
 
 const OrderConfirmation = () => {
-  // const randomName = faker.name.fullName();
-  // const randomEmail = faker.internet.email();
-  // const randomStreetAddress = faker.address.streetAddress();
-  // const randomCity = faker.address.city();
-  // const randomStateAbbr = faker.address.stateAbbr();
-  // const randomZipCode = faker.address.zipCode();
-  // const productName = faker.commerce.productName();
-  // const productDescription = faker.commerce.productDescription();
-  // const productAdjective = faker.commerce.productAdjective();
-  // const productPrice = faker.commerce.price(100, 200, 0, '$');
-  
-  // const ID = uuidv4();
 
-  // const { date, items, totalPrice } = orderDetails;
   
   
   return (
