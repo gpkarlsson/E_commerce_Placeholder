@@ -13,8 +13,12 @@ import {
   AlertDescription,
   CloseButton,
   Button,
+  Text
 } from '@chakra-ui/react';
 
+import Footer from '../components/Footer';
+
+import { Link } from 'react-router-dom';
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ 
@@ -75,6 +79,8 @@ const SignupForm = () => {
 
   return (
     <>
+     <Box minHeight="100vh" display="flex" flexDirection="column">
+      <Box flex="0"></Box>
       {/* This is needed for the validation functionality above */}
       <Box as="form" noValidate onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
@@ -85,40 +91,46 @@ const SignupForm = () => {
         </Alert>
     
         <FormControl id="username" isRequired>
-          <FormLabel>Username</FormLabel>
+          <FormLabel color="gray.200">Username</FormLabel>
           <Input
             type="text"
             placeholder="Your username"
             name="username"
             onChange={handleInputChange}
             value={userFormData.username}
+            bg="white"
           />
           <FormErrorMessage>Username is required!</FormErrorMessage>
         </FormControl>
     
         <FormControl id="email" isRequired>
-          <FormLabel>Email</FormLabel>
+          <FormLabel color="gray.200">Email</FormLabel>
           <Input
             type="email"
             placeholder="Your email address"
             name="email"
             onChange={handleInputChange}
             value={userFormData.email}
+            bg="white"
           />
           <FormErrorMessage>Email is required!</FormErrorMessage>
         </FormControl>
     
         <FormControl id="password" isRequired>
-          <FormLabel>Password</FormLabel>
+          <FormLabel color="gray.200">Password</FormLabel>
           <Input
             type="password"
             placeholder="Your password"
             name="password"
             onChange={handleInputChange}
             value={userFormData.password}
+            bg="white.900"
           />
           <FormErrorMessage>Password is required!</FormErrorMessage>
         </FormControl>
+        <Link to="/forgot" >
+          <Text textAlign={"right"} color="gray.200">Forgot your password?</Text>
+        </Link>
         <Button
           mt={4}
           colorScheme="teal"
@@ -130,6 +142,9 @@ const SignupForm = () => {
         >
           Submit
         </Button>
+
+      </Box>
+      <Footer />
       </Box>
     </>
     );

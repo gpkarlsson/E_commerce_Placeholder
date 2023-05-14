@@ -36,6 +36,24 @@ export default function Shipping() {
           
           <Checkbox>Shipping Address is the same as billing address</Checkbox>
         </FormControl>
+        <br />
+
+        <FormLabel mt="10px">Credit Card Number</FormLabel>
+        <Input className="billingInput" type="text" placeholder="Enter your credit card number" bg="white" color="brand.400" />
+        <br />
+        <FormLabel mt="10px">Expiration Date</FormLabel>
+        <Input className="billingInput" type="text" placeholder="Enter your expiration date" bg="white" color="brand.400" />
+        <br />
+        <FormLabel mt="10px">CVV</FormLabel>
+        <Input className="billingInput" type="text" placeholder="Enter your CVV" bg="white" color="brand.400" />
+        <br />
+        <FormLabel mt="10px">Billing Zip Code</FormLabel>
+        <Input className="billingInput" type="text" placeholder="Enter your billing zip code" bg="white" color="brand.400" />
+        <br />
+        
+        <Checkbox>Save this information for next time</Checkbox>
+        <Button mt="20px" bg="brand.900" color="white">Place Order</Button>
+
       {/* </Form> */}
     </>
   )

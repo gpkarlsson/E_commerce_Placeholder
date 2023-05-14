@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import {Link } from "react-router-dom";
 // import Checkout from "./Checkout";
@@ -21,14 +21,13 @@ import {
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 
-// https://chakra-ui.com/docs/components/stepper - this is a good example of how to use the stepper component
-// stepper could be useful for cart checkout process
-
 function Cart() {
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: "Product 1", price: 10, quantity: 1 },
-    { id: 2, name: "Product 2", price: 20, quantity: 2 },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const initialCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    setCartItems(initialCartItems);
+  }, []);
 
   const handleQuantityChange = (id, e) => {
     const newCartItems = [...cartItems];
@@ -49,22 +48,24 @@ function Cart() {
 
   return (
     <>
+<Box minHeight="100vh" display="flex" flexDirection="column">
+  <Box flex="0"></Box>
     <Box p={4}>
-      <Heading mb={4} color="brand.400">Shopping Cart</Heading>
+      <Heading mb={4} color="gray.200">Shopping Cart</Heading>
       <Table variant="simple">
         <Thead>
           <Tr>
-            <Th color="brand.400">Product Name</Th>
-            <Th color="brand.400">Price</Th>
-            <Th color="brand.400">Quantity</Th>
-            <Th color="brand.400">Actions</Th>
+            <Th color="gray.200">Product Name</Th>
+            <Th color="gray.200">Price</Th>
+            <Th color="gray.200">Quantity</Th>
+            <Th color="gray.200">Actions</Th>
           </Tr>
         </Thead>
         <Tbody>
           {cartItems.map((item) => (
-            <Tr color="brand.400" key={item.id}>
-              <Td color="brand.400">{item.name}</Td>
-              <Td color="brand.400">${item.price}</Td>
+            <Tr color="gray.200" key={item.id}>
+              <Td color="gray.200">{item.itemName}</Td>
+              <Td color="gray.200">${item.price}</Td>
               <Td>
                 <Input
                   type="number"
@@ -85,14 +86,16 @@ function Cart() {
         </Tbody>
       </Table>
       <Flex justify="space-between" mt={4}>
-        <Text fontWeight="bold" color="brand.400">Total Price:</Text>
-        <Text color="brand.400">${totalPrice}</Text>
+        <Text fontWeight="bold" color="gray.200">Total Price:</Text>
+        <Text color="gray.200">${totalPrice}</Text>
       </Flex>
       <Link to="/checkout">
-      <Button mt={4} bg="brand.900" color="white">Checkout</Button>
+      <Button mt={4} bg="blue.400" color="white">Checkout</Button>
       </Link>
     </Box>
     <Footer />
+    </Box>
+
     </>
   );
 }

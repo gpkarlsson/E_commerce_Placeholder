@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Image, Button, Center, Flex } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 
-const Card = ({ item }) => (
+const Card = ({ item, handleAddToCart }) => (
   <Box boxShadow="5px 5px 5px gray" borderTop="8px" borderColor="blue.400" bg="gray.900" p={5} borderRadius="lg" m={{ base: 1, md: 5 }}>
     <Flex direction="column" h="100%">
       <Flex justifyContent="space-between">
@@ -21,7 +21,7 @@ const Card = ({ item }) => (
       </Box>
       <Flex justifyContent="space-between" alignItems="center">
         <Text color="LightGray">{item.itemDescription}</Text>
-        <Button bg="blue.400" color="white" variant="ghost" leftIcon={<AddIcon />}>Add to Cart</Button>
+        <Button bg="blue.400" color="white" variant="ghost" leftIcon={<AddIcon />} onClick={() => handleAddToCart(item)}>Add to Cart</Button>
       </Flex>
     </Flex>
   </Box>

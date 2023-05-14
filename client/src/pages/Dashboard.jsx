@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 // import { Box, Card, CardBody, CardHeader, CardFooter, SimpleGrid, Text, Flex, Heading, HStack, Button, Divider, Image } from "@chakra-ui/react";
 // import { AddIcon } from '@chakra-ui/icons'
 // import Footer from '../components/Footer'
@@ -12,6 +12,7 @@ import Footer from "../components/Footer";
 import { useQuery, gql } from '@apollo/client';
 import ItemCard from '../components/ItemCard';
 import { SimpleGrid } from '@chakra-ui/react';
+// import { HandleAddToCart } from '../helpers/HandleAddToCart';
 // export default function Dashboard() {
 
 const GET_ITEMS = gql`
@@ -26,30 +27,46 @@ query {
 }
 `;
 
-  //   const tasks = useLoaderData()
-  // const productName = faker.commerce.productName();
-  // const productDescription = faker.commerce.productDescription();
-  // const productAdjective = faker.commerce.productAdjective();
-  // const productPrice = faker.commerce.price(100, 200, 0, '$');
-  // const productImage = faker.image.image(1234, 2345);
+const Dashboard = () => {
+  
+function handleAddToCart(item) {
+  let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  console.log(item)
 
- const Dashboard = () => {
-    const { loading, error, data } = useQuery(GET_ITEMS);
+  //Check if the item is already in the cart
+  let existingItem = cartItems.find((i) => i.id === item._id);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  } else {
+    // If the item is not in the cart, add it
+   const newItem = { ...item, quantity: 1 };
+   localStorage.setItem('cartItems', JSON.stringify([...cartItems, newItem]));
+  }
+
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
   
-    if (loading) return <p>'Loading...'</p>;
-    if (error) return<p>Error: {error.message}</p>;
-  
-    return (
-      <>
+};
+
+
+  const { loading, error, data } = useQuery(GET_ITEMS);
+
+
+  if (loading) return <p>'Loading...'</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <>
       <Carousel />
       <SimpleGrid columns={[1, 1, 2]} spacing="40px" mt="20px">
         {data.allItems.map((item) => (
-          <ItemCard key={item._id} item={item} />
+          <ItemCard key={item._id} item={item} handleAddToCart={handleAddToCart} />
         ))}
       </SimpleGrid>
       <Footer />
-      </>
+    </>
 
-    );
-  };
-  export default Dashboard
+  );
+};
+export default Dashboard
