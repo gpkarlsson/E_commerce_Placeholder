@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
-  {
-    currentUser {
+  query getUser($userId: ID) {
+    currentUser(userId: $userId) {
       _id
       username
       email
@@ -11,8 +11,8 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_USER_ITEMS = gql`
-  {
-    currentUserItems {
+  query getUserItems($userId: ID){
+    currentUserItems(userId: $userId) {
       _id
       username
       email
@@ -33,20 +33,7 @@ export const QUERY_USER_HISTORY = gql`
       _id
       user_id
       order_date
-      [order]
-    }
-  }
-`;
-
-export const QUERY_ITEMS = gql`
-  {
-    allItems {
-      _id
-      user_id
-      itemName
-      imageLink
-      price
-      itemDescription
+      order
     }
   }
 `;

@@ -4,23 +4,23 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-      currentUser: async (parent, args, context) => {
-        if (context.user) {
-          const userData = await User.findOne({ _id: context.user.id }).select('-__v -password');
+      currentUser: async (parent, userId, context) => {
+        if (userId) {
+          const userData = await User.findOne({ _id: userId }).select('-__v -password');
           return userData;
         }
         throw new AuthenticationError('You need to be logged in!');
       },
-      currentUserItems: async (parent, args, context) => {
-        if (context.user) {
-          const itemData = await Item.find({ user_id: context.user.id });
+      currentUserItems: async (parent, userId, context) => {
+        if (userId) {
+          const itemData = await Item.find({ user_id: userId });
           return itemData;
         }
         throw new AuthenticationError('You need to be logged in!');
       },
-      currentUserHistory: async (parent, args, context) => {
-        if (context.user) {
-          const itemData = await History.find({ user_id: context.user.id });
+      currentUserHistory: async (parent, userId, context) => {
+        if (userId) {
+          const itemData = await History.find({ user_id: userId });
           return itemData;
         }
         throw new AuthenticationError('You need to be logged in!');
