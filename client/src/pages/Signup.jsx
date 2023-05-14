@@ -79,6 +79,7 @@ const SignupForm = () => {
 
   return (
     <>
+    <Text textAlign={"center"} paddingTop="10px" fontSize="30px" color="gray.200">Sign Up</Text>
       <Box minHeight="100vh" display="flex" flexDirection="column">
         <Box flex="0"></Box>
         {/* This is needed for the validation functionality above */}
@@ -128,12 +129,10 @@ const SignupForm = () => {
             />
             <FormErrorMessage>Password is required!</FormErrorMessage>
           </FormControl>
-          <Link to="/forgot" >
-            <Text textAlign={"right"} color="gray.200">Forgot your password?</Text>
-          </Link>
+          
           <Button
+            bg="blue.400"
             mt={4}
-            colorScheme="teal"
             isLoading={false}
             type="submit"
             isDisabled={

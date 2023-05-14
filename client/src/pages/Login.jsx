@@ -13,7 +13,11 @@ import {
   AlertDescription,
   CloseButton,
   Button,
+  Text,
 } from '@chakra-ui/react';
+
+import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const LoginForm = () => {
   // set initial form state
@@ -73,7 +77,8 @@ const LoginForm = () => {
 
   return (
     <>
-      <Box as="form" noValidate onSubmit={handleFormSubmit}>
+    <Text textAlign={"center"} paddingTop="10px" fontSize="30px" color="gray.200">Sign In</Text>
+      <Box minHeight="100vh" display="flex" flexDirection="column" as="form" noValidate onSubmit={handleFormSubmit}>
         <Alert status="error" display={showAlert ? 'flex' : 'none'}>
           <AlertIcon />
           <AlertDescription>Something went wrong with your login!</AlertDescription>
@@ -81,31 +86,36 @@ const LoginForm = () => {
         </Alert>
 
         <FormControl id="email" isRequired>
-          <FormLabel>Email</FormLabel>
+          <FormLabel color="gray.200">Email</FormLabel>
           <Input
             type="email"
             placeholder="Your email address"
             name="email"
             onChange={handleInputChange}
             value={userFormData.email}
+            bg="white.900"
           />
           <FormErrorMessage>Email is required!</FormErrorMessage>
         </FormControl>
 
         <FormControl id="password" isRequired>
-          <FormLabel>Password</FormLabel>
+          <FormLabel color="gray.200">Password</FormLabel>
           <Input
             type="password"
             placeholder="Your password"
             name="password"
             onChange={handleInputChange}
             value={userFormData.password}
+            bg="white.900"
           />
           <FormErrorMessage>Password is required!</FormErrorMessage>
         </FormControl>
+        <Link to="/forgot" >
+            <Text textAlign={"right"} color="gray.200">Forgot your password?</Text>
+          </Link>
         <Button
+          bg="blue.400"
           mt={4}
-          colorScheme="teal"
           isLoading={false}
           type="submit"
           isDisabled={
@@ -113,7 +123,8 @@ const LoginForm = () => {
           }
         >
           Submit
-        </Button>
+        </Button> 
+         <Footer />
       </Box>
     </>
   );
