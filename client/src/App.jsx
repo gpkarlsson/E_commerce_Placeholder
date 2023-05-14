@@ -12,7 +12,7 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
+  // createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
@@ -33,8 +33,7 @@ import Signup from './pages/Signup'
 import ForgotPassword from './pages/ForgotPassword'
 import Contact from './pages/Contact'
 import Create from './pages/Create'
-
-
+import { CartProvider } from './helpers/CartContext';
 // const httpLink = createHttpLink({
 //   uri: 'http://localhost:3001/graphql',
 // });
@@ -82,7 +81,9 @@ const router = createBrowserRouter(
 export default function App() {
   return (
     <ApolloProvider client={client}>
+      <CartProvider>
       <RouterProvider router={router} />
+      </CartProvider>
     </ApolloProvider>
   )
 }

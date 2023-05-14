@@ -10,6 +10,8 @@ export default function Footer() {
       as="footer"
       role="contentinfo"
       py={{ base: '12', md: '16' }}
+      display={"flex"}
+      flexShrink={0}
     >
       <Stack
         spacing={{ base: '4', md: '5' }}
