@@ -33,7 +33,7 @@ export const QUERY_USER_HISTORY = gql`
       _id
       user_id
       order_date
-      [order]
+      order
     }
   }
 `;
