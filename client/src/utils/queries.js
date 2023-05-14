@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
   {
-    user {
+    currentUser {
       _id
       username
       email
@@ -12,7 +12,7 @@ export const QUERY_USER = gql`
 
 export const QUERY_USER_ITEMS = gql`
   {
-    user {
+    currentUserItems {
       _id
       username
       email
@@ -29,7 +29,7 @@ export const QUERY_USER_ITEMS = gql`
 
 export const QUERY_USER_HISTORY = gql`
   {
-    history {
+    currentUserHistory {
       _id
       user_id
       order_date
@@ -40,7 +40,7 @@ export const QUERY_USER_HISTORY = gql`
 
 export const QUERY_ITEMS = gql`
   {
-    items {
+    allItems {
       _id
       user_id
       itemName
@@ -50,3 +50,15 @@ export const QUERY_ITEMS = gql`
     }
   }
 `;
+
+export const QUERY_ITEM = gql`
+  {
+    singleItem {
+      _id
+      user_id
+      itemName
+      imageLink
+      price
+      itemDescription
+    }
+  }`
