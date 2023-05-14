@@ -28,7 +28,11 @@ const resolvers = {
       allItems: async (parent, args, context) => {
           const itemData = await Item.find();
           return itemData;
-    }
+      },
+      singleItem: async (parent, args, context) => {
+        const itemData = await Item.findOne({ _id: context.item.id });
+        return itemData;
+      }
   },
     Mutation: {
       addUser: async (parent, args) => {

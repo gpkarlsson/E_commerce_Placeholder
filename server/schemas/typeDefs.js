@@ -48,6 +48,7 @@ const typeDefs = gql`
         currentUserItems: [Item]
         currentUserHistory: [Item]
         allItems: [Item]
+        singleItem: Item
     }
     type Mutation {
         login(email: String!, password: String!): Auth
