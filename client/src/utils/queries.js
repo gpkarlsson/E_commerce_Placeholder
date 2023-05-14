@@ -61,4 +61,17 @@ export const QUERY_ITEM = gql`
       price
       itemDescription
     }
-  }`
+  }
+  `;
+
+export const GET_ITEMS = gql`
+query {
+  allItems {
+    _id
+    itemName
+    imageLink
+    price
+    itemDescription
+  }
+}
+`;

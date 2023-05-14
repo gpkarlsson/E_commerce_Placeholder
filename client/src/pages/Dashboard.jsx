@@ -3,7 +3,7 @@ import { React, useState } from 'react';
 // import { AddIcon } from '@chakra-ui/icons'
 // import Footer from '../components/Footer'
 
-
+import {GET_ITEMS} from '../utils/queries';
 
 import Carousel from "../components/Carousel";
 import Footer from "../components/Footer";
@@ -15,17 +15,6 @@ import { SimpleGrid } from '@chakra-ui/react';
 // import { HandleAddToCart } from '../helpers/HandleAddToCart';
 // export default function Dashboard() {
 
-const GET_ITEMS = gql`
-query {
-  allItems {
-    _id
-    itemName
-    imageLink
-    price
-    itemDescription
-  }
-}
-`;
 
 const Dashboard = () => {
   
