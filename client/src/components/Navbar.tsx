@@ -299,16 +299,8 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Cart',
     href: '/cart',
   },
-  // {
-  //   label: isAuthenticated() ? 'Sign Out' : 'Sign In',
-  //   href: isAuthenticated() ? `${ localStorage.removeItem("id_token"), '/' }` : '/api/users/login',
-  // },
   {
     label: 'List New Item',
     href: '/create',
   },
-  // {
-  //   label: 'Something Else',
-  //   href: '#',
-  // },
 ].filter(Boolean) as Array<NavItem>; // filter out falsey values from the array and assert the result as Array<NavItem>

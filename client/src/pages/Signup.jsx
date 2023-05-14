@@ -21,10 +21,10 @@ import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ 
-    username: '', 
-    email: '', 
-    password: '' 
+  const [userFormData, setUserFormData] = useState({
+    username: '',
+    email: '',
+    password: ''
   });
 
   // set state for form validation
@@ -47,7 +47,7 @@ const SignupForm = () => {
 
     setUserFormData({
       ...userFormData,
-      [name]: value 
+      [name]: value
     });
   };
 
@@ -79,75 +79,75 @@ const SignupForm = () => {
 
   return (
     <>
-     <Box minHeight="100vh" display="flex" flexDirection="column">
-      <Box flex="0"></Box>
-      {/* This is needed for the validation functionality above */}
-      <Box as="form" noValidate onSubmit={handleFormSubmit}>
-        {/* show alert if server response is bad */}
-        <Alert status="error" display={showAlert ? 'flex' : 'none'}>
-          <AlertIcon />
-          <AlertDescription>Something went wrong with your signup!</AlertDescription>
-          <CloseButton position="absolute" right="8px" top="8px" onClick={() => setShowAlert(false)} />
-        </Alert>
-    
-        <FormControl id="username" isRequired>
-          <FormLabel color="gray.200">Username</FormLabel>
-          <Input
-            type="text"
-            placeholder="Your username"
-            name="username"
-            onChange={handleInputChange}
-            value={userFormData.username}
-            bg="white"
-          />
-          <FormErrorMessage>Username is required!</FormErrorMessage>
-        </FormControl>
-    
-        <FormControl id="email" isRequired>
-          <FormLabel color="gray.200">Email</FormLabel>
-          <Input
-            type="email"
-            placeholder="Your email address"
-            name="email"
-            onChange={handleInputChange}
-            value={userFormData.email}
-            bg="white"
-          />
-          <FormErrorMessage>Email is required!</FormErrorMessage>
-        </FormControl>
-    
-        <FormControl id="password" isRequired>
-          <FormLabel color="gray.200">Password</FormLabel>
-          <Input
-            type="password"
-            placeholder="Your password"
-            name="password"
-            onChange={handleInputChange}
-            value={userFormData.password}
-            bg="white.900"
-          />
-          <FormErrorMessage>Password is required!</FormErrorMessage>
-        </FormControl>
-        <Link to="/forgot" >
-          <Text textAlign={"right"} color="gray.200">Forgot your password?</Text>
-        </Link>
-        <Button
-          mt={4}
-          colorScheme="teal"
-          isLoading={false}
-          type="submit"
-          isDisabled={
-            !(userFormData.username && userFormData.email && userFormData.password)
-          }
-        >
-          Submit
-        </Button>
+      <Box minHeight="100vh" display="flex" flexDirection="column">
+        <Box flex="0"></Box>
+        {/* This is needed for the validation functionality above */}
+        <Box as="form" noValidate onSubmit={handleFormSubmit}>
+          {/* show alert if server response is bad */}
+          <Alert status="error" display={showAlert ? 'flex' : 'none'}>
+            <AlertIcon />
+            <AlertDescription>Something went wrong with your signup!</AlertDescription>
+            <CloseButton position="absolute" right="8px" top="8px" onClick={() => setShowAlert(false)} />
+          </Alert>
 
-      </Box>
-      <Footer />
+          <FormControl id="username" isRequired>
+            <FormLabel color="gray.200">Username</FormLabel>
+            <Input
+              type="text"
+              placeholder="Your username"
+              name="username"
+              onChange={handleInputChange}
+              value={userFormData.username}
+              bg="white"
+            />
+            <FormErrorMessage>Username is required!</FormErrorMessage>
+          </FormControl>
+
+          <FormControl id="email" isRequired>
+            <FormLabel color="gray.200">Email</FormLabel>
+            <Input
+              type="email"
+              placeholder="Your email address"
+              name="email"
+              onChange={handleInputChange}
+              value={userFormData.email}
+              bg="white"
+            />
+            <FormErrorMessage>Email is required!</FormErrorMessage>
+          </FormControl>
+
+          <FormControl id="password" isRequired>
+            <FormLabel color="gray.200">Password</FormLabel>
+            <Input
+              type="password"
+              placeholder="Your password"
+              name="password"
+              onChange={handleInputChange}
+              value={userFormData.password}
+              bg="white.900"
+            />
+            <FormErrorMessage>Password is required!</FormErrorMessage>
+          </FormControl>
+          <Link to="/forgot" >
+            <Text textAlign={"right"} color="gray.200">Forgot your password?</Text>
+          </Link>
+          <Button
+            mt={4}
+            colorScheme="teal"
+            isLoading={false}
+            type="submit"
+            isDisabled={
+              !(userFormData.username && userFormData.email && userFormData.password)
+            }
+          >
+            Submit
+          </Button>
+
+        </Box>
+        <Footer />
       </Box>
     </>
-    );
-  };
-  
-  export default SignupForm;
+  );
+};
+
+export default SignupForm;

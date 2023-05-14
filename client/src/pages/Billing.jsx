@@ -9,7 +9,7 @@ export default function Billing() {
       <Stepper />
       <FormControl isRequired>
         <FormLabel>First Name</FormLabel>
-        <Input className="billingInput" type="text" placeholder="Enter your first name" bg="white" color="brand.400" p="10px"/>
+        <Input className="billingInput" type="text" placeholder="Enter your first name" bg="white" color="brand.400" p="10px" />
         <FormLabel>Last Name</FormLabel>
         <Input className="billingInput" type="text" placeholder="Enter your last name" bg="white" color="brand.400" p="10px" />
         <FormLabel>Credit Card Number</FormLabel>

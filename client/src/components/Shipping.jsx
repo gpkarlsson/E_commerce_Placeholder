@@ -1,13 +1,11 @@
 // @ts-check
 import React from 'react'
 
-import Stepper from '../components/Stepper'
 import { Button, Checkbox, FormControl, FormLabel, Input } from '@chakra-ui/react'
 
 export default function Shipping() {
   return (
     <>
-    <Stepper />
     {/* <Form> */}
         <FormControl isRequired>
           <FormLabel mt="10px">First Name</FormLabel>

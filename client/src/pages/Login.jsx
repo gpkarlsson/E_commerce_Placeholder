@@ -17,9 +17,9 @@ import {
 
 const LoginForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ 
-    email: '', 
-    password: '' 
+  const [userFormData, setUserFormData] = useState({
+    email: '',
+    password: ''
   });
 
   // set state for form validation
@@ -42,7 +42,7 @@ const LoginForm = () => {
 
     setUserFormData({
       ...userFormData,
-      [name]: value 
+      [name]: value
     });
   };
 
@@ -79,7 +79,7 @@ const LoginForm = () => {
           <AlertDescription>Something went wrong with your login!</AlertDescription>
           <CloseButton position="absolute" right="8px" top="8px" onClick={() => setShowAlert(false)} />
         </Alert>
-    
+
         <FormControl id="email" isRequired>
           <FormLabel>Email</FormLabel>
           <Input
@@ -91,7 +91,7 @@ const LoginForm = () => {
           />
           <FormErrorMessage>Email is required!</FormErrorMessage>
         </FormControl>
-    
+
         <FormControl id="password" isRequired>
           <FormLabel>Password</FormLabel>
           <Input
@@ -116,7 +116,7 @@ const LoginForm = () => {
         </Button>
       </Box>
     </>
-    );
-  };
-  
-  export default LoginForm; 
+  );
+};
+
+export default LoginForm; 

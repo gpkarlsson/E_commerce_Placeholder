@@ -22,7 +22,6 @@ export default function ForgotPassword() {
 
     function handleFormSubmit() {
         document.getElementById("email").value = "";
-        //object is possibly null
         showForgotToast();
     }
 
