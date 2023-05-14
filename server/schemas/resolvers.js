@@ -6,21 +6,21 @@ const resolvers = {
     Query: {
       currentUser: async (parent, args, context) => {
         if (context.user) {
-          const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
+          const userData = await User.findOne({ _id: context.user.id }).select('-__v -password');
           return userData;
         }
         throw new AuthenticationError('You need to be logged in!');
       },
       currentUserItems: async (parent, args, context) => {
         if (context.user) {
-          const itemData = await Item.find({ user_id: context.user._id });
+          const itemData = await Item.find({ user_id: context.user.id });
           return itemData;
         }
         throw new AuthenticationError('You need to be logged in!');
       },
       currentUserHistory: async (parent, args, context) => {
         if (context.user) {
-          const itemData = await History.find({ user_id: context.user._id });
+          const itemData = await History.find({ user_id: context.user.id });
           return itemData;
         }
         throw new AuthenticationError('You need to be logged in!');
