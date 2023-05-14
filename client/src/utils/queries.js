@@ -38,19 +38,6 @@ export const QUERY_USER_HISTORY = gql`
   }
 `;
 
-export const QUERY_ITEMS = gql`
-  {
-    allItems {
-      _id
-      user_id
-      itemName
-      imageLink
-      price
-      itemDescription
-    }
-  }
-`;
-
 export const QUERY_ITEM = gql`
   {
     singleItem {
