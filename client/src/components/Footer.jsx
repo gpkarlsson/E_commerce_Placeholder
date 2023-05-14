@@ -1,5 +1,3 @@
-// @ts-check
-
 import React from 'react'
 import { ButtonGroup, Container, Flex, IconButton, Stack, Text } from '@chakra-ui/react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'

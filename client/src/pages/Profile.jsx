@@ -15,9 +15,7 @@ export default function Profile() {
           <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>Account Info</Tab>
           <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>Order History</Tab>
           <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>My Items</Tab>
-
         </TabList>
-
         <TabPanels>
           <TabPanel>
             <List spacing={4}>
@@ -53,7 +51,7 @@ export default function Profile() {
           <TabPanel>
             <List spacing={4}>
               <ListItem>
-               ITEMS GET DISPLAYED HERE
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi culpa et nulla nobis repellat, necessitatibus, sed veritatis totam in, maxime incidunt! Cum natus ipsa delectus?
               </ListItem>
             </List>
           </TabPanel>

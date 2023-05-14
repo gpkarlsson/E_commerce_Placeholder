@@ -10,15 +10,14 @@ export default function NotFound() {
       <p>Here are some helpful links:</p>
       <Link to='/'>
         <Text fontSize="40px">
-        Home
-          </Text>
-          </Link><br />
+          Home
+        </Text>
+      </Link><br />
       <Link to='/profile'>
         <Text fontSize="40px">
-        Profile
+          Profile
         </Text>
-        </Link>
-      {/* <Link to='/contact'>Contact</Link> */}
+      </Link>
     </div>
   )
 }

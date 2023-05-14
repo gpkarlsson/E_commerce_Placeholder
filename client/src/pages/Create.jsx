@@ -117,10 +117,6 @@ const Create = () => {
     }
   };
 
-    // Add logic to create a new item using the itemData state
-    // HINT: You will need to use the ADD_ITEM mutation and provide the input from the form
-    
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Box

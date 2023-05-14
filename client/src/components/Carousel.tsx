@@ -37,7 +37,7 @@ const settings = {
 export default function Carousel() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
-  const [slider, setSlider] = React.useState< Slider | null>(null);
+  const [slider, setSlider] = React.useState<Slider | null>(null);
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
@@ -58,9 +58,9 @@ export default function Carousel() {
       width={'full'}
       overflow={'hidden'}
       borderRadius={'xl'}
-      display={{ base: 'none', md: 'block'}}
-      >
-        
+      display={{ base: 'none', md: 'block' }}
+    >
+
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -73,33 +73,7 @@ export default function Carousel() {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
-      {/* Left Icon */}
-      {/* <IconButton
-        aria-label="left-arrow"
-        bg="blue.400"
-        borderRadius="full"
-        position="absolute"
-        left={side}
-        top={top}
-        transform={'translate(0%, -50%)'}
-        zIndex={2}
-        onClick={() => slider?.slickPrev()}>
-        <BiLeftArrowAlt />
-      </IconButton> */}
-      {/* Right Icon */}
-      {/* <IconButton
-        aria-label="right-arrow"
-        bg="blue.400"
-        borderRadius="full"
-        position="absolute"
-        right={side}
-        top={top}
-        transform={'translate(0%, -50%)'}
-        zIndex={2}
-        onClick={() => slider?.slickNext()}>
-        <BiRightArrowAlt />
-      </IconButton> */}
-      {/* Slider */}
+
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((url, index) => (
           <Box
