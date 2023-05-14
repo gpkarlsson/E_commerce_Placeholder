@@ -14,15 +14,14 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/client": "^3.7.14",
+    "@chakra-ui/react": "^2.6.1",
+    "@vitejs/plugin-react": "^4.0.0",
     "bcryptjs": "^2.4.3",
+    "concurrently": "^5.2.0",
     "dotenv": "^16.0.3",
     "graphql": "^15.8.0",
     "jwt-decode": "^3.1.2",
-    "vite": "^4.3.2",
-    "@faker-js/faker": "^7.6.0",
-    "@chakra-ui/react": "^2.6.1",
-    "@vitejs/plugin-react": "^4.0.0",
-    "concurrently": "^5.2.0",
-    "react-hook-form": "^7.43.9"
+    "react-hook-form": "^7.43.9",
+    "vite": "^4.3.2"
   }
 }
