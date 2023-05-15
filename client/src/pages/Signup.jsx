@@ -132,8 +132,10 @@ const SignupForm = () => {
           
           <Button
             bg="blue.400"
+            color="white"
             mt={4}
             isLoading={false}
+            _hover={{ color: 'black' }}
             type="submit"
             isDisabled={
               !(userFormData.username && userFormData.email && userFormData.password)

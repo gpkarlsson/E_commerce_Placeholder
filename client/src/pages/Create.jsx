@@ -185,7 +185,7 @@ const Create = () => {
           </FormErrorMessage>
         </FormControl>
 
-        <Button mt={4} bg="blue.400" type="submit">
+        <Button mt={4} bg="blue.400" color="white" type="submit"  _hover={{ color: 'black' }}>
           Create Item
         </Button>
       </Box>
