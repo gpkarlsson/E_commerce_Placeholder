@@ -22,6 +22,7 @@ Our team developed _______ in order to showcase our fullstack repetoire. This ap
 ## Usage
 
 ## Screenshot
+![Landing Page Screenshot](https://github.com/gpkarlsson/E_commerce_Placeholder/assets/114494147/97d1d0d5-e8d1-48d9-8b1b-ec4d6972779f)
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
