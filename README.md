@@ -20,6 +20,20 @@
 ## Description
 Our team developed MERN Marketplace in order to showcase our fullstack repetoire. This application aims to replicate the presentation and functionality of an E-Commerce site such as Etsy or Ebay.
 
+Future goals for this project include: 
+
+* Adding a section to display the user's username in the navbar when the user is logged in
+
+* Adding functional checkout process implementing Stripe for payments
+
+* Implementing inventory quanitities and updating the inventory state when an item is purchased.
+
+* User order history
+
+* Form to add and store user's data in the profile section
+
+* Ability to upload photos when creating an item instead of providing a link to the image
+
 ## Table of Contents
 * [Overview](#overview)
 * [Technologies](#technologies)
