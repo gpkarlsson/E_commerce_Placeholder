@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "main": "server.js",
-  "homepage": "https://boiling-badlands-16078.herokuapp.com/",
+  "homepage": "https://pacific-dawn-34240.herokuapp.com/",
   "scripts": {
     "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
     "build": "cd client && npm run build",
