@@ -36,7 +36,6 @@ Future goals for this project include:
 
 ## Table of Contents
 * [Overview](#overview)
-* [Technologies](#technologies)
 * [Usage](#usage)
 * [License](#license)
 * [Contact](#contact)
@@ -47,7 +46,14 @@ Future goals for this project include:
 To run this project on localhost, you must first have `Node.js` and `NPM` installed. Clone the repository, run `npm i` in your terminal, and then once the NPM packages finish installing, run `npm run dev`. The command line will display success messages that will inform you that the Vite front end is now running on localhost:5173, and that the Apollo GraphQL backend is now running on localhost:3001. Navigate to localhost:5173 in your browser of choice to view the web page.
 
 ## Screenshot
+Desktop:
 ![Landing Page Screenshot](https://github.com/gpkarlsson/E_commerce_Placeholder/assets/114494147/97d1d0d5-e8d1-48d9-8b1b-ec4d6972779f)
+
+<br />
+Mobile:
+
+![image](https://github.com/gpkarlsson/E_commerce_Placeholder/assets/114494147/5b4a8fd2-f62a-49d8-83d7-6a7652397daf)
+
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
