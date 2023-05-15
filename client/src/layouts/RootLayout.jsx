@@ -14,7 +14,7 @@ export default function RootLayout() {
     <Grid bg="#2a2d2f">
     {/* main content & navbar */}
     <GridItem as={Flex} justify="center" align="center">
-      <Flex direction="column" maxWidth="1600px" width={{ base: '90vw', md: '80vw', lg: '90vw' }}>
+      <Flex direction="column" width={{ base: '90vw', md: '80vw', lg: '90vw' }}>
         <Navbar />
         <Outlet />
       </Flex>

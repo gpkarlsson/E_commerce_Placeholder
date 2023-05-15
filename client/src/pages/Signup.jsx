@@ -79,9 +79,8 @@ const SignupForm = () => {
 
   return (
     <>
-    <Text textAlign={"center"} paddingTop="10px" fontSize="30px" color="gray.200">Sign Up</Text>
       <Box minHeight="100vh" display="flex" flexDirection="column">
-        <Box flex="0"></Box>
+    <Text textAlign={"center"} paddingTop="10px" fontSize="30px" color="gray.200">Sign Up</Text>
         {/* This is needed for the validation functionality above */}
         <Box as="form" noValidate onSubmit={handleFormSubmit}>
           {/* show alert if server response is bad */}
@@ -145,7 +144,9 @@ const SignupForm = () => {
           </Button>
 
         </Box>
+        <Box mt="auto">
         <Footer />
+        </Box>
       </Box>
     </>
   );

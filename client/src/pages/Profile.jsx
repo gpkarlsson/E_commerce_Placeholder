@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, TabList, TabPanels, Tab, TabPanel, List, ListItem, ListIcon } from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel, List, ListItem, ListIcon, Box } from "@chakra-ui/react";
 
 import { CalendarIcon, EmailIcon, InfoIcon, InfoOutlineIcon } from "@chakra-ui/icons";
 
@@ -10,7 +10,8 @@ export default function Profile() {
 
   return (
     <>
-      <Tabs mt="40px" p="20px" colorScheme="purple" variant="enclosed">
+      <Box minHeight="100vh" display="flex" flexDirection="column">
+      <Tabs mt="40px" p="20px" colorScheme="purple" variant="enclosed"  color="gray.200">
         <TabList>
           <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>Account Info</Tab>
           <Tab _selected={{ color: "white", bg: "brand.900", transition: "0.2s" }}>Order History</Tab>
@@ -57,7 +58,10 @@ export default function Profile() {
           </TabPanel>
         </TabPanels>
       </Tabs>
+      <Box mt="auto">
       <Footer />
+    </Box>
+    </Box>
     </>
   )
 }

@@ -303,4 +303,8 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'List New Item',
     href: '/create',
   },
+  {
+    label: 'Profile',
+    href: '/profile',
+  },
 ].filter(Boolean) as Array<NavItem>; // filter out falsey values from the array and assert the result as Array<NavItem>
