@@ -128,8 +128,9 @@ const LoginForm = () => {
           </Button>
           <Link to="/forgot" >
             <Text textAlign={"right"} color="gray.200">Forgot your password?</Text>
+            </Link>
             <Text textAlign={"right"} color="gray.200" mt={2}><Link as="a" to="/signup">Don't have an account? <Text color="blue.400">Sign Up</Text></Link></Text>
-          </Link>
+  
           <Box mt="auto">
             <Footer />
           </Box>
