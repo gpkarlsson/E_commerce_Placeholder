@@ -3,9 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "main": "server.js",
-  "engines": {
-    "node": "12.11.1"
-  },
   "scripts": {
     "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
     "build": "cd client && npm run build",
