@@ -116,7 +116,9 @@ const LoginForm = () => {
         <Button
           width="86px"
           bg="blue.400"
+          color="white"
           mt={4}
+          _hover={{ color: 'black' }}
           isLoading={false}
           type="submit"
           isDisabled={

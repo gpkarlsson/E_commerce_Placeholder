@@ -90,7 +90,7 @@ function Cart() {
         <Text color="gray.200">${totalPrice}</Text>
       </Flex>
       <Link to="/checkout">
-      <Button mt={4} bg="blue.400" color="white">Checkout</Button>
+      <Button mt={4} bg="blue.400" color="white" _hover={{ color: 'black' }}>Checkout</Button>
       </Link>
     </Box>
     <Footer />
