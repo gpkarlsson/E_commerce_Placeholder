@@ -18,7 +18,7 @@
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 ## Description
-Our team developed MERN Marketplace in order to showcase our fullstack repetoire. This application aims to replicate the presentation and functionality of an E-Commerce site such as Etsy or Ebay.
+Our team developed MERN Marketplace in order to showcase our fullstack repetoire. This application aims to replicate the presentation and functionality of an E-Commerce site such as Etsy or Ebay. The team decided on this project as the world of E-Commerce has grown significantly in our lifetime. We divided coding responsibilities based on individual experience and confidence, as well as interest. Beyond this course, our goal is to develop the application to have greater user interface, more profile customizations, and to allow transactions between buyers and sellers. 
 
 ## Table of Contents
 * [Overview](#overview)
@@ -28,6 +28,7 @@ Our team developed MERN Marketplace in order to showcase our fullstack repetoire
 * [Contact](#contact)
 
 ## Overview
+MERN Marketplace allows users to buy and sell products on the site. Users can begin by creating a personal profile which will allow them to scroll through list pages where products are displayed for sale. Users also have the ability to sell their own products on their own unique listing page. Our buying and selling process is simliar to existing e-commerce sites as customers are prompted to provide shipping and payment information after adding items to their cart. 
 
 ## Usage
 To run this project on localhost, you must first have `Node.js` and `NPM` installed. Clone the repository, run `npm i` in your terminal, and then once the NPM packages finish installing, run `npm run dev`. The command line will display success messages that will inform you that the Vite front end is now running on localhost:5173, and that the Apollo GraphQL backend is now running on localhost:3001. Navigate to localhost:5173 in your browser of choice to view the web page.
