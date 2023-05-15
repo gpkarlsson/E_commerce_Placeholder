@@ -29,6 +29,8 @@ Our team developed _______ in order to showcase our fullstack repetoire. This ap
 ## Resources
 [How To Develop A React and Express Application Using Vite](https://medium.com/@fredimanuelb/how-to-develop-a-react-and-express-application-using-vite-a493f3e844f5)
 
+[Chakra UI](https://chakra-ui.com/)
+
 ## Contact
 * Ben Ropa | benropa@outlook.com | [GitHub](https://github.com/BenRopa)
 * Devin Hoffmaster | hlaf83@ymail.com | [GitHub](https://github.com/HoffmasterDevin)
