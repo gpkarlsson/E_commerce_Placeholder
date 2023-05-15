@@ -41,6 +41,7 @@ To run this project on localhost, you must first have `Node.js` and `NPM` instal
 ## Resources
 
 [How To Develop A React and Express Application Using Vite](https://medium.com/@fredimanuelb/how-to-develop-a-react-and-express-application-using-vite-a493f3e844f5)
+
 [Chakra UI](https://chakra-ui.com/)
 
 ## Contact
