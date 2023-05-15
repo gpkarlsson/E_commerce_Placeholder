@@ -6,6 +6,7 @@ import {
   Input,
   FormErrorMessage,
   Textarea,
+  Text,
   Button,
   NumberInput,
   NumberInputField,
@@ -119,6 +120,7 @@ const Create = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+       <Text textAlign={"center"} paddingTop="10px" fontSize="30px" color="gray.200">List New Item</Text>
       <Box
         as="form"
         noValidate
@@ -183,7 +185,7 @@ const Create = () => {
           </FormErrorMessage>
         </FormControl>
 
-        <Button mt={4} colorScheme="teal" type="submit">
+        <Button mt={4} bg="blue.400" type="submit">
           Create Item
         </Button>
       </Box>

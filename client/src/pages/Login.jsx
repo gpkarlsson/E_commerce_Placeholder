@@ -114,6 +114,7 @@ const LoginForm = () => {
             <Text textAlign={"right"} color="gray.200">Forgot your password?</Text>
           </Link>
         <Button
+          width="86px"
           bg="blue.400"
           mt={4}
           isLoading={false}
