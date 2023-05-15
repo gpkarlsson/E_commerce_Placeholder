@@ -77,57 +77,63 @@ const LoginForm = () => {
 
   return (
     <>
-    <Text textAlign={"center"} paddingTop="10px" fontSize="30px" color="gray.200">Sign In</Text>
-      <Box minHeight="100vh" display="flex" flexDirection="column" as="form" noValidate onSubmit={handleFormSubmit}>
-        <Alert status="error" display={showAlert ? 'flex' : 'none'}>
-          <AlertIcon />
-          <AlertDescription>Something went wrong with your login!</AlertDescription>
-          <CloseButton position="absolute" right="8px" top="8px" onClick={() => setShowAlert(false)} />
-        </Alert>
+      <Box minHeight="100vh" display="flex" flexDirection="column">
+        <Text textAlign={"center"} paddingTop="10px" fontSize="30px" color="gray.200">Sign In</Text>
+        <Box minHeight="100vh" display="flex" flexDirection="column" as="form" noValidate onSubmit={handleFormSubmit}>
+          <Alert status="error" display={showAlert ? 'flex' : 'none'}>
+            <AlertIcon />
+            <AlertDescription>Something went wrong with your login!</AlertDescription>
+            <CloseButton position="absolute" right="8px" top="8px" onClick={() => setShowAlert(false)} />
+          </Alert>
 
-        <FormControl id="email" isRequired>
-          <FormLabel color="gray.200">Email</FormLabel>
-          <Input
-            type="email"
-            placeholder="Your email address"
-            name="email"
-            onChange={handleInputChange}
-            value={userFormData.email}
-            bg="white.900"
-          />
-          <FormErrorMessage>Email is required!</FormErrorMessage>
-        </FormControl>
+          <FormControl id="email" isRequired>
+            <FormLabel color="gray.200">Email</FormLabel>
+            <Input
+              type="email"
+              placeholder="Your email address"
+              name="email"
+              onChange={handleInputChange}
+              value={userFormData.email}
+              bg="white.900"
+            />
+            <FormErrorMessage>Email is required!</FormErrorMessage>
+          </FormControl>
 
-        <FormControl id="password" isRequired>
-          <FormLabel color="gray.200">Password</FormLabel>
-          <Input
-            type="password"
-            placeholder="Your password"
-            name="password"
-            onChange={handleInputChange}
-            value={userFormData.password}
-            bg="white.900"
-          />
-          <FormErrorMessage>Password is required!</FormErrorMessage>
-        </FormControl>
-        <Link to="/forgot" >
+          <FormControl id="password" isRequired>
+            <FormLabel color="gray.200">Password</FormLabel>
+            <Input
+              type="password"
+              placeholder="Your password"
+              name="password"
+              onChange={handleInputChange}
+              value={userFormData.password}
+              bg="white.900"
+            />
+            <FormErrorMessage>Password is required!</FormErrorMessage>
+          </FormControl>
+
+          <Button
+            width="86px"
+            bg="blue.400"
+            color="white"
+            mt={4}
+            _hover={{ color: 'black' }}
+            isLoading={false}
+            type="submit"
+            isDisabled={
+              !(userFormData.email && userFormData.password)
+            }
+          >
+            Submit
+          </Button>
+          <Link to="/forgot" >
             <Text textAlign={"right"} color="gray.200">Forgot your password?</Text>
+            <Text textAlign={"right"} color="gray.200" mt={2}><Link as="a" to="/signup">Don't have an account? <Text color="blue.400">Sign Up</Text></Link></Text>
           </Link>
-        <Button
-          width="86px"
-          bg="blue.400"
-          color="white"
-          mt={4}
-          _hover={{ color: 'black' }}
-          isLoading={false}
-          type="submit"
-          isDisabled={
-            !(userFormData.email && userFormData.password)
-          }
-        >
-          Submit
-        </Button> 
-         <Footer />
+          <Box mt="auto">
+            <Footer />
+          </Box>
+        </Box>
       </Box>
     </>
   );
