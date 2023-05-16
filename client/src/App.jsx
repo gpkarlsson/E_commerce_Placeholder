@@ -71,9 +71,9 @@ const router = createBrowserRouter(
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <CartProvider>
+      {/* <CartProvider> */}
       <RouterProvider router={router} />
-      </CartProvider>
+      {/* </CartProvider> */}
     </ApolloProvider>
   )
 }
