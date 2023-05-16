@@ -43,7 +43,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  uri: 'https://pacific-dawn-34240.herokuapp.com/',
+  uri: 'https://pacific-dawn-34240.herokuapp.com/graphql',
   cache: new InMemoryCache(),
 });
 
