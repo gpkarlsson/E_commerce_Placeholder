@@ -52,18 +52,18 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Dashboard />}/>
-      <Route path="/create" element={<Create />}/>
+      <Route path="create" element={<Create />}/>
       <Route path="/" element={<Dashboard />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="profile" element={<Profile />} />
+      <Route path="cart" element={<Cart />} />
       <Route path="*" element={<NotFound />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/checkout" element={<Checkout />}></Route>
-      <Route path="/shipping" element={<Shipping />}></Route>
-      <Route path="/billing" element={<Billing />}></Route>
-      <Route path="/signup" element={<Signup />}></Route>
-      <Route path="/forgot" element={<ForgotPassword />}></Route>
-      <Route path="/contact" element={<Contact />}></Route>
+      <Route path="login" element={<Login />} />
+      <Route path="checkout" element={<Checkout />}></Route>
+      <Route path="shipping" element={<Shipping />}></Route>
+      <Route path="billing" element={<Billing />}></Route>
+      <Route path="signup" element={<Signup />}></Route>
+      <Route path="forgot" element={<ForgotPassword />}></Route>
+      <Route path="contact" element={<Contact />}></Route>
     </Route>
   ),
 );
