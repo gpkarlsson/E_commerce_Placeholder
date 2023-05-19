@@ -44,10 +44,10 @@ Future goals for this project include:
 MERN Marketplace allows users to buy and sell products on the site. Users can begin by creating a personal profile which will allow them to scroll through list pages where products are displayed for sale. Users also have the ability to sell their own products on their own unique listing page. Our buying and selling process is simliar to existing e-commerce sites as customers are prompted to provide shipping and payment information after adding items to their cart. 
 
 ## Usage
+[Deployed](https://pacific-dawn-34240.herokuapp.com/) on Heroku - User can log in, sign up, log out and create new items.
+
 To run this project on localhost, you must first have `Node.js` and `NPM` installed. Clone the repository, navigate into the directory that the cloned repository is in and run `npm i` in your terminal. Once the NPM packages finish installing, run `npm start`. The command line will display success messages that will inform you that the Vite front end is now running on localhost:3001, and that the Apollo GraphQL backend is now running on localhost:3001. Navigate to localhost:3001 in your browser of choice to view the web page.
 
-
-Heroku Deployment is currently not fully functional, in the process of getting it running on heroku still. 
 
 ## Screenshot
 Desktop:
