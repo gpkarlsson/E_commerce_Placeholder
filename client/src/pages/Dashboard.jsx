@@ -31,7 +31,7 @@ const Dashboard = () => {
   const { loading, error, data } = useQuery(GET_ITEMS);
 
   if (loading) return <p>'Loading...'</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <p color="gray.200">Error: {error.message}</p>;
 
   return (
     <>

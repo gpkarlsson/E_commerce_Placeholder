@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+//inject react and useState
 import {
   Box,
   FormControl,
@@ -12,10 +13,15 @@ import {
   NumberInputField,
   useToast
 } from '@chakra-ui/react';
+//inject chakra ui components
 import { useMutation } from '@apollo/client';
+//inject useMutation from apollo client
 import { ADD_ITEM } from '../utils/mutations';
+//inject ADD_ITEM mutation
 import Footer from '../components/Footer';
+//inject Footer component
 import jwt_decode from 'jwt-decode'
+//inject jwt_decode
 
 const Create = () => {
   const [itemData, setItemData] = useState({
@@ -24,21 +30,25 @@ const Create = () => {
     price: '',
     itemDescription: '',
   });
-
+//set initial state for itemData, initialize component function and state
   const toast = useToast();
-
+//set toast to useToast
 
   const handleInputChange = (event) => {
+    //set up handleInputChange function to handle input changes
     const { name, value } = event.target;
     // If the input field is price, convert value to number
     const inputValue = name === 'price' ? parseFloat(value) : value;
+    // parse float value for price
     setItemData({
       ...itemData,
       [name]: inputValue,
+      //setting inputValue to name for product
     });
   };
 
   const handlePriceChange = (value) => {
+    //set up handlePriceChange function to handle price changes
     setItemData({
       ...itemData,
       price: value,

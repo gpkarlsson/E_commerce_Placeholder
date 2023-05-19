@@ -43,27 +43,27 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  uri: 'https://pacific-dawn-34240.herokuapp.com/graphql',
   cache: new InMemoryCache(),
 });
-
+// wrapper 
 // router and routes
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
+      {/* <Route path="/" element={<Dashboard />} /> */}
+      <Route path="create" element={<Create />}/>
+      <Route path="profile" element={<Profile />} />
+      <Route path="cart" element={<Cart />} />
+      <Route path="login" element={<Login />} />
+      <Route path="checkout" element={<Checkout />}></Route>
+      <Route path="shipping" element={<Shipping />}></Route>
+      <Route path="billing" element={<Billing />}></Route>
+      <Route path="signup" element={<Signup />}></Route>
+      <Route path="forgot" element={<ForgotPassword />}></Route>
+      <Route path="contact" element={<Contact />}></Route>
+      {/* <Route path="/*" element={<NotFound />} /> */}
       <Route index element={<Dashboard />}/>
-      <Route path="/create" element={<Create />}/>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="*" element={<NotFound />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/checkout" element={<Checkout />}></Route>
-      <Route path="/shipping" element={<Shipping />}></Route>
-      <Route path="/billing" element={<Billing />}></Route>
-      <Route path="/signup" element={<Signup />}></Route>
-      <Route path="/forgot" element={<ForgotPassword />}></Route>
-      <Route path="/contact" element={<Contact />}></Route>
     </Route>
   ),
 );
