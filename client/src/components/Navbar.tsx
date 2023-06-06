@@ -34,14 +34,14 @@ const isAuthenticated = (): boolean => {
     return false;
   }
 };
-
+// labelValue is the text that will be displayed on the button. If user is logged in (authenticated), the button will say "Sign Out". If user is not logged in, the button will say "Sign Up"
 let labelValue = (): string => {
   if(isAuthenticated()) {
     return 'Sign Out';
   }
   return 'Sign Up';
 };
-
+// otherLabelValue is the text that will be displayed on the button. If user is logged in (authenticated), the button will say ''. If user is not logged in, the button will say "Sign In"
 let otherLabelValue = (): string => {
   if(isAuthenticated()) {
     return '';
@@ -54,6 +54,7 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
+    // navar
     <Box>
       <Flex
         bg={useColorModeValue('#181a1b', 'gray.800')}
